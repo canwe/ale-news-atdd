@@ -1,5 +1,7 @@
 package net.caimito.ale_news.article_service;
 
+import java.util.UUID;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -7,45 +9,25 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @XmlRootElement
-public class ArticleMetadata {
+public class ArticleId {
 
-	private String author;
-	private String title;
-	private String location;
-	private String id ;
-
-	public String getAuthor() {
-		return author;
+	private UUID id ;
+	
+	public ArticleId(String id) {
+		this.id = UUID.fromString(id) ;
 	}
-
-	public void setAuthor(String author) {
-		this.author = author;
+	
+	private ArticleId() {
 	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
+	
 	public String getId() {
-		return id;
+		return id.toString();
 	}
-
+	
 	public void setId(String id) {
-		this.id = id;
+		this.id = UUID.fromString(id);
 	}
-
+	
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this) ;
@@ -59,6 +41,10 @@ public class ArticleMetadata {
 	@Override
 	public int hashCode() {
 		return HashCodeBuilder.reflectionHashCode(this) ;
+	}
+
+	public static ArticleId generate() {
+		return new ArticleId(UUID.randomUUID().toString());
 	}
 
 }

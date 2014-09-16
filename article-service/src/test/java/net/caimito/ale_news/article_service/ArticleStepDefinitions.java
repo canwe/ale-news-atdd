@@ -3,6 +3,7 @@ package net.caimito.ale_news.article_service;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
@@ -100,5 +101,20 @@ public class ArticleStepDefinitions {
 	            .target("http://localhost:8080/article-service").path("/article/" + articleId)
 	                        .request().get(ArticleMetadata.class);
 		assertThat(actualMetadata.getAuthor(), equalTo(expectedMetadata.getAuthor()));
+	}
+	
+	@When("^I delete the article with key \"(.*?)\"$")
+	public void i_delete_the_article_with_key(String id) throws Throwable {
+		ClientBuilder.newClient()
+	            .target("http://localhost:8080/article-service").path("/article/" + id)
+	                        .request().delete();
+	}
+
+	@Then("^the article with key \"(.*?)\" does not exist$")
+	public void the_article_with_key_does_not_exist(String id) throws Throwable {
+		actualMetadata = ClientBuilder.newClient()
+	            .target("http://localhost:8080/article-service").path("/article/" + id)
+	                        .request().get(ArticleMetadata.class);
+		assertThat(actualMetadata, is(nullValue()));
 	}
 }

@@ -24,5 +24,10 @@ Scenario: Update article metadata
 		| Hans Moser | From competition it is a big leap to cooperation | http://www.stephan-schwab.com/china/culture/management/thoughts/2014/08/30/collaboration-or-cooperation.html |
 
 Scenario: Delete article metadata
+	Given the article with key "550e8400-e29b-11d4-a716-446655440000" exists in the archive
+		| Author         | Title                                            | location                                                                                                     |
+		| Stephan Schwab | From competition it is a big leap to cooperation | http://www.stephan-schwab.com/china/culture/management/thoughts/2014/08/30/collaboration-or-cooperation.html |
+	When I delete the article with key "550e8400-e29b-11d4-a716-446655440000"
+	Then the article with key "550e8400-e29b-11d4-a716-446655440000" does not exist
 
 Scenario: List article metadata

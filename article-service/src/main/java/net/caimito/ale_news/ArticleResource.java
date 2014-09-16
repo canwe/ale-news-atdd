@@ -1,6 +1,7 @@
 package net.caimito.ale_news;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -47,6 +48,13 @@ public class ArticleResource {
 
     	return new ArticleId(fakeArticle.getId()) ;
     }
+    
+    @DELETE
+	@Path("/{articleId}")
+    public void deleteArticle(@PathParam("articleId") String articleId) {
+    	fakeArticle = null ;
+    }
+    
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

@@ -31,3 +31,6 @@ Scenario: Delete article metadata
 	Then the article with key "550e8400-e29b-11d4-a716-446655440000" does not exist
 
 Scenario: List article metadata
+	Given some articles exist in the archive
+	When I ask for a list of articles with URI "/article"
+	Then I will receive a list of articles

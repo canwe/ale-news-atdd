@@ -4,13 +4,20 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+import java.util.Vector;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -22,6 +29,7 @@ public class ArticleStepDefinitions {
 	protected ArticleMetadata expectedMetadata;
 	protected ArticleMetadata actualMetadata;
 	protected ArticleId actualArticleId ;
+	protected List<ArticleMetadata>  actualArticles ;
 
 	@When("^I post the following article metadata to the article service with URI \"(.*?)\"$")
 	public void postArticle(String uri, List<ArticleMetadata> metadata) throws Throwable {
@@ -116,5 +124,34 @@ public class ArticleStepDefinitions {
 	            .target("http://localhost:8080/article-service").path("/article/" + id)
 	                        .request().get(ArticleMetadata.class);
 		assertThat(actualMetadata, is(nullValue()));
+	}
+	
+	@Given("^some articles exist in the archive$")
+	public void some_articles_exist_in_the_archive() throws Throwable {
+		ArticleMetadata articleMetadata = new ArticleMetadata() ;
+		articleMetadata.setAuthor("Joe");
+		articleMetadata.setLocation("http://localhost");
+		articleMetadata.setTitle("Something");
+		articleMetadata.setId(UUID.randomUUID().toString());
+		
+		ArticleId id = ClientBuilder.newClient()
+	            .target("http://localhost:8080/article-service").path("/article/fakeCreate")
+	            .request(MediaType.APPLICATION_JSON_TYPE).post(Entity.entity(articleMetadata, MediaType.APPLICATION_JSON))
+	            .readEntity(ArticleId.class);
+	}
+
+	@When("^I ask for a list of articles with URI \"(.*?)\"$")
+	public void i_ask_for_a_list_of_articles_with_URI(String uri) throws Throwable {
+		GenericType<List<ArticleMetadata>> articleListType = new GenericType<List<ArticleMetadata>>() {};
+		
+		actualArticles = ClientBuilder.newClient()
+	            .target("http://localhost:8080/article-service").path("/article")
+	                        .request().get(articleListType) ;
+	}
+
+	@Then("^I will receive a list of articles$")
+	public void i_will_receive_a_list_of_articles() throws Throwable {
+		assertThat(actualArticles, is(notNullValue())) ;
+		assertThat(actualArticles.size(), is(not(0))) ;
 	}
 }

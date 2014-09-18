@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.caimito.ale-news</groupId>
 	<artifactId>article-service</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>article-service Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -71,7 +70,8 @@
 		<connection>scm:git:https://github.com/snscaimito/ale-news-atdd.git</connection>
 		<url>scm:git:https://github.com/snscaimito/ale-news-atdd.git</url>
 		<developerConnection>scm:git:https://github.com/snscaimito/ale-news-atdd.git</developerConnection>
-	</scm>
+	  <tag>HEAD</tag>
+  </scm>
 
 	<build>
 		<finalName>article-service</finalName>

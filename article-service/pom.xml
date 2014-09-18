@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-pro</artifactId>
-			<version>1.0.10</version>
+			<version>1.0.14</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -66,8 +66,78 @@
 			<version>2.2.11</version>
 		</dependency>
 	</dependencies>
+
+	<scm>
+		<connection>scm:git:https://github.com/snscaimito/ale-news-atdd.git</connection>
+		<url>scm:git:https://github.com/snscaimito/ale-news-atdd.git</url>
+		<developerConnection>scm:git:https://github.com/snscaimito/ale-news-atdd.git</developerConnection>
+	</scm>
+
 	<build>
 		<finalName>article-service</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/*IntegrationTest*</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>build-helper-maven-plugin</artifactId> 
+				<version>1.9</version> <executions> <execution> <id>reserve-ports</id> <phase>process-test-resources</phase> 
+				<goals> <goal>reserve-network-port</goal> </goals> <configuration> <portNames> 
+				<portName>port1</portName> </portNames> </configuration> </execution> </executions> 
+				</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*IntegrationTest*</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<path>/${project.artifactId}</path>
+				</configuration>
+				<executions>
+					<execution>
+						<id>start-tomcat</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<fork>true</fork>
+						</configuration>
+					</execution>
+					<execution>
+						<id>stop-tomcat</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>shutdown</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 	<properties>
 		<jerseyVersion>2.12</jerseyVersion>

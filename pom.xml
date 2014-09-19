@@ -8,6 +8,6 @@
   
   <modules>
   	<module>article-service</module>
-      <module>web-client</module>
+    <module>web-client</module>
   </modules>
 </project>

@@ -4,4 +4,4 @@ target/
 .settings
 .project
 .classpath
-
+bower_components

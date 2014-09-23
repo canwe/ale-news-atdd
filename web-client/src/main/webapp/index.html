@@ -1,23 +1,23 @@
-<html>
+<html ng-app="articleApp">
 <head>
-    <title>AngularJS Starter App</title>
+    <title>ALE News</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="app/css/main.css">
 </head>
-<body ng-app ng-init="name = 'World'">
-    <h1>Hello {{name}}!</h1>
+<body ng-controller="ArticleListCtrl">
+    <h1>ALE News</h1>
 
+    <ul>
+        <li ng-repeat="article in articles">
+            <a href="{{article.location}}">{{article.title}}</a><br/>
+            By {{article.author}}
+        </li>
+    </ul>
 
-
-    <!-- LIBS: js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <!-- end LIBS -->
-
-    <!-- APP: js -->
-
-    <!-- end APP -->
+    <script src="app/js/article-service.js"></script>
 </body>
 </html>
         

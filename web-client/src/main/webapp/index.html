@@ -7,8 +7,8 @@
 <body ng-controller="ArticleListCtrl">
     <h1>ALE News</h1>
 
-    <ul id="articleList">
-        <li ng-repeat="article in articles">
+    <ul id="articleMetadataList">
+        <li id="articleMetadata" ng-repeat="article in articles">
             <a href="{{article.location}}">{{article.title}}</a><br/>
             By {{article.author}}
         </li>

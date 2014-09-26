@@ -1,13 +1,5 @@
 package net.caimito.ale_news.web_client;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertThat;
-
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -20,6 +12,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
 import java.io.IOException;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
+import static org.junit.Assert.assertThat;
+
 public class StepDefinitions {
     private DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
     private PhantomJSDriver driver = new PhantomJSDriver(capabilities);
@@ -31,7 +28,7 @@ public class StepDefinitions {
 
     @Then("^I see a list of articles$")
     public void i_see_a_list_of_articles() throws Throwable {
-        assertThat(driver.findElement(By.id("articleList")), is(notNullValue())) ;
+        assertThat(driver.findElements(By.id("articleMetadata")), is(not(empty()))) ;
     }
 
     @After

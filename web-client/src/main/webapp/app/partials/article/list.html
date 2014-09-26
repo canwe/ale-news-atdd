@@ -1,0 +1,12 @@
+<div>
+    <a href="#/article/list">List</a> |
+    <a href="#/article/add">Add</a>
+</div>
+
+
+<ul id="articleMetadataList">
+    <li id="articleMetadata" ng-repeat="article in articles">
+        <a href="{{article.location}}">{{article.title}}</a><br/>
+        By {{article.author}}
+    </li>
+</ul>

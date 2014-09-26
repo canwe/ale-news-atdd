@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>net.caimito.ale-news</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
             <scope>test</scope>
@@ -67,6 +72,13 @@
                     <stopWait>10</stopWait>
                     <scanIntervalSeconds>0</scanIntervalSeconds>
                     <daemon>true</daemon>
+                    <requestLog implementation="org.eclipse.jetty.server.NCSARequestLog">
+                        <filename>target/yyyy_mm_dd.request.log</filename>
+                        <retainDays>90</retainDays>
+                        <append>true</append>
+                        <extended>true</extended>
+                        <logTimeZone>GMT</logTimeZone>
+                    </requestLog>
                 </configuration>
                 <executions>
                     <execution>

@@ -8,3 +8,12 @@ articleControllers.controller('articleListController', ['$scope', '$http',
             $scope.articles = data;
         });
     }]);
+
+articleControllers.controller('articleAddController', ['$scope', '$http',
+    function ($scope, $http) {
+        $scope.add = function(article) {
+            $http.post('http://localhost:8080/article-service/article', $scope.article).success(function(data) {
+                $scope.articleId = data;
+            });
+        } ;
+    }]);

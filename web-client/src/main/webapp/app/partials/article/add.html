@@ -3,4 +3,15 @@
     <a href="#/article/add">Add</a>
 </div>
 
-<p>This will be the article add form</p>
+<p>Add article metadata</p>
+
+<div ng-controller="articleAddController">
+    <form novalidate>
+        Author: <input type="text" ng-model="article.author" /><br />
+        Title: <input type="text" ng-model="article.title" /><br />
+        Location: <input type="text" ng-model="article.location" /><br/>
+        <button ng-click="add(article)">SAVE</button>
+    </form>
+
+    <p>Article ID = {{articleId}}</p>
+</div>

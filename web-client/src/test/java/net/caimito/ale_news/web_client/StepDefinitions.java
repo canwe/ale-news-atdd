@@ -25,11 +25,19 @@ public class StepDefinitions {
 
     @When("^I submit the following article metadata$")
     public void i_submit_the_following_article_metadata(List<ArticleMetadata> articleMetadataList) throws Throwable {
+        ArticleMetadata metadata = articleMetadataList.get(0) ;
+
+        driver.get("http://localhost:8080/web-client/app/#/article/add");
+
+        driver.findElement(By.id("author")).sendKeys(metadata.getAuthor());
+        driver.findElement(By.id("title")).sendKeys(metadata.getTitle());
+        driver.findElement(By.id("location")).sendKeys(metadata.getLocation());
+        driver.findElement(By.id("save")).click();
     }
 
     @When("^I open ALE News$")
     public void i_open_ALE_News() throws Throwable {
-        driver.get("http://localhost:8080/web-client");
+        driver.get("http://localhost:8080/web-client/app");
     }
 
     @Then("^I see a list of articles$")

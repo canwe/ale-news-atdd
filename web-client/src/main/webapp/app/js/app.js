@@ -7,8 +7,6 @@ articleApp.config(['$routeProvider',
     $routeProvider.
       when('/article/add', {
         templateUrl: 'partials/article/add.html'
-        /*,
-        controller: 'PhoneListCtrl' */
       }).
       when('/article', {
         templateUrl: 'partials/article/list.html',

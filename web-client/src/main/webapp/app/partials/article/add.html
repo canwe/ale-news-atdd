@@ -1,5 +1,5 @@
 <div>
-    <a href="#/article/list">List</a> |
+    <a href="#/article">List</a> |
     <a href="#/article/add">Add</a>
 </div>
 
@@ -7,10 +7,10 @@
 
 <div ng-controller="articleAddController">
     <form novalidate>
-        Author: <input type="text" ng-model="article.author" /><br />
-        Title: <input type="text" ng-model="article.title" /><br />
-        Location: <input type="text" ng-model="article.location" /><br/>
-        <button ng-click="add(article)">SAVE</button>
+        Author: <input id="author" type="text" ng-model="article.author" /><br />
+        Title: <input id="title" type="text" ng-model="article.title" /><br />
+        Location: <input id="location" type="text" ng-model="article.location" /><br/>
+        <button id="save" ng-click="add(article)">SAVE</button>
     </form>
 
     <p>Article ID = {{articleId}}</p>

@@ -71,9 +71,14 @@
                 <version>2.2.11</version>
             </dependency>
             <dependency>
-                <groupId>org.jruby</groupId>
-                <artifactId>jruby-complete</artifactId>
-                <version>1.7.15</version>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>2.43.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.detro.ghostdriver</groupId>
+                <artifactId>phantomjsdriver</artifactId>
+                <version>1.1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

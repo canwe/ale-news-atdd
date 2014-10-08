@@ -15,18 +15,19 @@ import javax.ws.rs.core.MediaType;
 
 import net.caimito.ale_news.article_service.ArticleId;
 import net.caimito.ale_news.article_service.ArticleMetadata;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Path("article")
 public class ArticleResource {
 
-	// todo: fake
-	private static ArticleMetadata fakeArticle ;
+    @Autowired
+	private ArticleStorage articleStorage ;
 	
 	@GET
     @Produces(MediaType.APPLICATION_JSON)
 	@Path("/{articleId}")
 	public ArticleMetadata getArticle(@PathParam("articleId") String articleId) {
-		return fakeArticle ;
+		return articleStorage.getStorage().get(articleId) ;
 	}
 	
 	
@@ -35,8 +36,9 @@ public class ArticleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public ArticleId storeArticle(ArticleMetadata metadata) {
     	ArticleId id = ArticleId.generate() ;
-    	fakeArticle = metadata ;
-        fakeArticle.setId(id.getId()) ;
+        metadata.setId(id.getId()) ;
+        articleStorage.getStorage().put(id.getId(), metadata) ;
+
         return id ;
     }
 
@@ -45,27 +47,25 @@ public class ArticleResource {
     @Consumes(MediaType.APPLICATION_JSON)
 	@Path("/{articleId}")
     public ArticleId updateArticle(@PathParam("articleId") String articleId, ArticleMetadata metadata) {
-    	fakeArticle.setAuthor(metadata.getAuthor()) ;
-    	fakeArticle.setLocation(metadata.getLocation());
-    	fakeArticle.setTitle(metadata.getTitle());
+        ArticleMetadata existingArticle = articleStorage.getStorage().get(articleId) ;
 
-    	return new ArticleId(fakeArticle.getId()) ;
+        existingArticle.setAuthor(metadata.getAuthor()) ;
+        existingArticle.setLocation(metadata.getLocation());
+        existingArticle.setTitle(metadata.getTitle());
+
+    	return new ArticleId(existingArticle.getId()) ;
     }
     
     @DELETE
 	@Path("/{articleId}")
     public void deleteArticle(@PathParam("articleId") String articleId) {
-    	fakeArticle = null ;
+        articleStorage.getStorage().remove(articleId) ;
     }
 
 	@GET
     @Produces(MediaType.APPLICATION_JSON)
 	public List<ArticleMetadata> getAllArticles() {
-		List<ArticleMetadata> articles = new ArrayList<ArticleMetadata>() ;
-		if (fakeArticle != null)
-			articles.add(fakeArticle) ;
-		
-		return articles ;
+		return new ArrayList<ArticleMetadata>(articleStorage.getStorage().values()) ;
 	}
 
 
@@ -74,8 +74,8 @@ public class ArticleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/fakeCreate")
     public ArticleId fakeStoreArticle(ArticleMetadata metadata) {
-    	fakeArticle = metadata ;
-        return new ArticleId(fakeArticle.getId()) ;
+        articleStorage.getStorage().put(metadata.getId(), metadata) ;
+        return new ArticleId(metadata.getId()) ;
     }
 
 }

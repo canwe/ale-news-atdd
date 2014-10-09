@@ -12,6 +12,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>net.caimito.ale_news.ArticleService</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/article-service/*</url-pattern>
     </servlet-mapping>
 </web-app>

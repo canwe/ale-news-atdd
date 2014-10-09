@@ -6,6 +6,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.caimito.ale_news.article_service.ArticleMetadata;
 import org.apache.commons.io.FileUtils;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.collection.IsEmptyCollection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -18,10 +20,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.collection.IsEmptyCollection.empty;
 import static org.junit.Assert.assertThat;
 
 public class StepDefinitions {
@@ -32,7 +32,7 @@ public class StepDefinitions {
     public void i_submit_the_following_article_metadata(List<ArticleMetadata> articleMetadataList) throws Throwable {
         ArticleMetadata metadata = articleMetadataList.get(0) ;
 
-        driver.get("http://localhost:8080/web-client/app/#/article/add");
+        driver.get("http://localhost:8080/app/#/article/add");
 
         driver.findElement(By.id("author")).sendKeys(metadata.getAuthor());
         driver.findElement(By.id("title")).sendKeys(metadata.getTitle());
@@ -42,12 +42,12 @@ public class StepDefinitions {
 
     @When("^I open ALE News$")
     public void i_open_ALE_News() throws Throwable {
-        driver.get("http://localhost:8080/web-client/app");
+        driver.get("http://localhost:8080/app");
     }
 
     @Then("^I see a list of articles$")
     public void i_see_a_list_of_articles() throws Throwable {
-        assertThat(driver.findElements(By.id("articleMetadata")), is(not(empty()))) ;
+        assertThat(driver.findElements(By.id("articleMetadata")), is(CoreMatchers.not(IsEmptyCollection.empty()))) ;
     }
 
     @Then("^the article metadata has been stored in the archive$")

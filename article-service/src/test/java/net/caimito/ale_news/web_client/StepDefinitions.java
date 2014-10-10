@@ -1,7 +1,9 @@
 package net.caimito.ale_news.web_client;
 
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.caimito.ale_news.article_service.ArticleMetadata;
@@ -66,6 +68,22 @@ public class StepDefinitions {
         if (scenario.isFailed()) {
             File screenshot = driver.getScreenshotAs(OutputType.FILE);
             FileUtils.copyFileToDirectory(screenshot, new File("target"));
+        }
+    }
+
+    @Given("^there are no articles in the archive$")
+    public void there_are_no_articles_in_the_archive() throws Throwable {
+        GenericType<List<ArticleMetadata>> articleListType = new GenericType<List<ArticleMetadata>>() {};
+
+        List<ArticleMetadata> actualArticles = ClientBuilder.newClient()
+                .target("http://localhost:8080/article-service").path("/article")
+                .request(MediaType.APPLICATION_JSON).get(articleListType) ;
+
+        for (ArticleMetadata metadata : actualArticles) {
+            ClientBuilder.newClient().target("http://localhost:8080/article-service")
+                    .path("/article/" + metadata.getId())
+                    .request()
+                    .delete() ;
         }
     }
 }

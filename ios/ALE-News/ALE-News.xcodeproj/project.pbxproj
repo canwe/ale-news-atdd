@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB4DE3AC19E7D0AE00871A82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DE3AB19E7D0AE00871A82 /* main.m */; };
+		FB4DE3AF19E7D0AE00871A82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DE3AE19E7D0AE00871A82 /* AppDelegate.m */; };
+		FB4DE3B219E7D0AE00871A82 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DE3B119E7D0AE00871A82 /* ViewController.m */; };
+		FB4DE3B519E7D0AE00871A82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4DE3B319E7D0AE00871A82 /* Main.storyboard */; };
+		FB4DE3B719E7D0AE00871A82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB4DE3B619E7D0AE00871A82 /* Images.xcassets */; };
+		FB4DE3BA19E7D0AE00871A82 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB4DE3B819E7D0AE00871A82 /* LaunchScreen.xib */; };
+		FB4DE3C619E7D0AE00871A82 /* ALE_NewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DE3C519E7D0AE00871A82 /* ALE_NewsTests.m */; };
+		FB4DE3D919E7D0E300871A82 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4DE3D819E7D0E300871A82 /* ShareViewController.m */; };
+		FB4DE3DB19E7D0E300871A82 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4DE3DA19E7D0E300871A82 /* MainInterface.storyboard */; };
+		FB4DE3DE19E7D0E300871A82 /* ScoopArticles.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FB4DE3D319E7D0E300871A82 /* ScoopArticles.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB4DE3C019E7D0AE00871A82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB4DE39E19E7D0AE00871A82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB4DE3A519E7D0AE00871A82;
+			remoteInfo = "ALE-News";
+		};
+		FB4DE3DC19E7D0E300871A82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB4DE39E19E7D0AE00871A82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB4DE3D219E7D0E300871A82;
+			remoteInfo = ScoopArticles;
+		};
+		FB4DE3DF19E7D0E300871A82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB4DE39E19E7D0AE00871A82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB4DE3D219E7D0E300871A82;
+			remoteInfo = ScoopArticles;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB4DE3E419E7D0E300871A82 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB4DE3DE19E7D0E300871A82 /* ScoopArticles.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FB4DE3A619E7D0AE00871A82 /* ALE-News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ALE-News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB4DE3AA19E7D0AE00871A82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB4DE3AB19E7D0AE00871A82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB4DE3AD19E7D0AE00871A82 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB4DE3AE19E7D0AE00871A82 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB4DE3B019E7D0AE00871A82 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FB4DE3B119E7D0AE00871A82 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FB4DE3B419E7D0AE00871A82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB4DE3B619E7D0AE00871A82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FB4DE3B919E7D0AE00871A82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FB4DE3BF19E7D0AE00871A82 /* ALE-NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ALE-NewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB4DE3C419E7D0AE00871A82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB4DE3C519E7D0AE00871A82 /* ALE_NewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALE_NewsTests.m; sourceTree = "<group>"; };
+		FB4DE3D319E7D0E300871A82 /* ScoopArticles.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScoopArticles.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB4DE3D619E7D0E300871A82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB4DE3D719E7D0E300871A82 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		FB4DE3D819E7D0E300871A82 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		FB4DE3DA19E7D0E300871A82 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB4DE3A319E7D0AE00871A82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DE3BC19E7D0AE00871A82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DE3D019E7D0E300871A82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB4DE39D19E7D0AE00871A82 = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3A819E7D0AE00871A82 /* ALE-News */,
+				FB4DE3C219E7D0AE00871A82 /* ALE-NewsTests */,
+				FB4DE3D419E7D0E300871A82 /* ScoopArticles */,
+				FB4DE3A719E7D0AE00871A82 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB4DE3A719E7D0AE00871A82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3A619E7D0AE00871A82 /* ALE-News.app */,
+				FB4DE3BF19E7D0AE00871A82 /* ALE-NewsTests.xctest */,
+				FB4DE3D319E7D0E300871A82 /* ScoopArticles.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB4DE3A819E7D0AE00871A82 /* ALE-News */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3AD19E7D0AE00871A82 /* AppDelegate.h */,
+				FB4DE3AE19E7D0AE00871A82 /* AppDelegate.m */,
+				FB4DE3B019E7D0AE00871A82 /* ViewController.h */,
+				FB4DE3B119E7D0AE00871A82 /* ViewController.m */,
+				FB4DE3B319E7D0AE00871A82 /* Main.storyboard */,
+				FB4DE3B619E7D0AE00871A82 /* Images.xcassets */,
+				FB4DE3B819E7D0AE00871A82 /* LaunchScreen.xib */,
+				FB4DE3A919E7D0AE00871A82 /* Supporting Files */,
+			);
+			path = "ALE-News";
+			sourceTree = "<group>";
+		};
+		FB4DE3A919E7D0AE00871A82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3AA19E7D0AE00871A82 /* Info.plist */,
+				FB4DE3AB19E7D0AE00871A82 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB4DE3C219E7D0AE00871A82 /* ALE-NewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3C519E7D0AE00871A82 /* ALE_NewsTests.m */,
+				FB4DE3C319E7D0AE00871A82 /* Supporting Files */,
+			);
+			path = "ALE-NewsTests";
+			sourceTree = "<group>";
+		};
+		FB4DE3C319E7D0AE00871A82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3C419E7D0AE00871A82 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB4DE3D419E7D0E300871A82 /* ScoopArticles */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3D719E7D0E300871A82 /* ShareViewController.h */,
+				FB4DE3D819E7D0E300871A82 /* ShareViewController.m */,
+				FB4DE3DA19E7D0E300871A82 /* MainInterface.storyboard */,
+				FB4DE3D519E7D0E300871A82 /* Supporting Files */,
+			);
+			path = ScoopArticles;
+			sourceTree = "<group>";
+		};
+		FB4DE3D519E7D0E300871A82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DE3D619E7D0E300871A82 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB4DE3A519E7D0AE00871A82 /* ALE-News */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB4DE3C919E7D0AE00871A82 /* Build configuration list for PBXNativeTarget "ALE-News" */;
+			buildPhases = (
+				FB4DE3A219E7D0AE00871A82 /* Sources */,
+				FB4DE3A319E7D0AE00871A82 /* Frameworks */,
+				FB4DE3A419E7D0AE00871A82 /* Resources */,
+				FB4DE3E419E7D0E300871A82 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB4DE3DD19E7D0E300871A82 /* PBXTargetDependency */,
+				FB4DE3E019E7D0E300871A82 /* PBXTargetDependency */,
+			);
+			name = "ALE-News";
+			productName = "ALE-News";
+			productReference = FB4DE3A619E7D0AE00871A82 /* ALE-News.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB4DE3BE19E7D0AE00871A82 /* ALE-NewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB4DE3CC19E7D0AE00871A82 /* Build configuration list for PBXNativeTarget "ALE-NewsTests" */;
+			buildPhases = (
+				FB4DE3BB19E7D0AE00871A82 /* Sources */,
+				FB4DE3BC19E7D0AE00871A82 /* Frameworks */,
+				FB4DE3BD19E7D0AE00871A82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB4DE3C119E7D0AE00871A82 /* PBXTargetDependency */,
+			);
+			name = "ALE-NewsTests";
+			productName = "ALE-NewsTests";
+			productReference = FB4DE3BF19E7D0AE00871A82 /* ALE-NewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB4DE3D219E7D0E300871A82 /* ScoopArticles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB4DE3E119E7D0E300871A82 /* Build configuration list for PBXNativeTarget "ScoopArticles" */;
+			buildPhases = (
+				FB4DE3CF19E7D0E300871A82 /* Sources */,
+				FB4DE3D019E7D0E300871A82 /* Frameworks */,
+				FB4DE3D119E7D0E300871A82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScoopArticles;
+			productName = ScoopArticles;
+			productReference = FB4DE3D319E7D0E300871A82 /* ScoopArticles.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB4DE39E19E7D0AE00871A82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Stephan Schwab";
+				TargetAttributes = {
+					FB4DE3A519E7D0AE00871A82 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					FB4DE3BE19E7D0AE00871A82 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = FB4DE3A519E7D0AE00871A82;
+					};
+					FB4DE3D219E7D0E300871A82 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = FB4DE3A119E7D0AE00871A82 /* Build configuration list for PBXProject "ALE-News" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB4DE39D19E7D0AE00871A82;
+			productRefGroup = FB4DE3A719E7D0AE00871A82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB4DE3A519E7D0AE00871A82 /* ALE-News */,
+				FB4DE3BE19E7D0AE00871A82 /* ALE-NewsTests */,
+				FB4DE3D219E7D0E300871A82 /* ScoopArticles */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB4DE3A419E7D0AE00871A82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DE3B519E7D0AE00871A82 /* Main.storyboard in Resources */,
+				FB4DE3BA19E7D0AE00871A82 /* LaunchScreen.xib in Resources */,
+				FB4DE3B719E7D0AE00871A82 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DE3BD19E7D0AE00871A82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DE3D119E7D0E300871A82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DE3DB19E7D0E300871A82 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB4DE3A219E7D0AE00871A82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DE3B219E7D0AE00871A82 /* ViewController.m in Sources */,
+				FB4DE3AF19E7D0AE00871A82 /* AppDelegate.m in Sources */,
+				FB4DE3AC19E7D0AE00871A82 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DE3BB19E7D0AE00871A82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DE3C619E7D0AE00871A82 /* ALE_NewsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB4DE3CF19E7D0E300871A82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4DE3D919E7D0E300871A82 /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB4DE3C119E7D0AE00871A82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB4DE3A519E7D0AE00871A82 /* ALE-News */;
+			targetProxy = FB4DE3C019E7D0AE00871A82 /* PBXContainerItemProxy */;
+		};
+		FB4DE3DD19E7D0E300871A82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB4DE3D219E7D0E300871A82 /* ScoopArticles */;
+			targetProxy = FB4DE3DC19E7D0E300871A82 /* PBXContainerItemProxy */;
+		};
+		FB4DE3E019E7D0E300871A82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB4DE3D219E7D0E300871A82 /* ScoopArticles */;
+			targetProxy = FB4DE3DF19E7D0E300871A82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB4DE3B319E7D0AE00871A82 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB4DE3B419E7D0AE00871A82 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB4DE3B819E7D0AE00871A82 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB4DE3B919E7D0AE00871A82 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB4DE3C719E7D0AE00871A82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB4DE3C819E7D0AE00871A82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB4DE3CA19E7D0AE00871A82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ALE-News/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB4DE3CB19E7D0AE00871A82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ALE-News/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FB4DE3CD19E7D0AE00871A82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ALE-NewsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ALE-News.app/ALE-News";
+			};
+			name = Debug;
+		};
+		FB4DE3CE19E7D0AE00871A82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ALE-NewsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ALE-News.app/ALE-News";
+			};
+			name = Release;
+		};
+		FB4DE3E219E7D0E300871A82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ScoopArticles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FB4DE3E319E7D0E300871A82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ScoopArticles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB4DE3A119E7D0AE00871A82 /* Build configuration list for PBXProject "ALE-News" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB4DE3C719E7D0AE00871A82 /* Debug */,
+				FB4DE3C819E7D0AE00871A82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB4DE3C919E7D0AE00871A82 /* Build configuration list for PBXNativeTarget "ALE-News" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB4DE3CA19E7D0AE00871A82 /* Debug */,
+				FB4DE3CB19E7D0AE00871A82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB4DE3CC19E7D0AE00871A82 /* Build configuration list for PBXNativeTarget "ALE-NewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB4DE3CD19E7D0AE00871A82 /* Debug */,
+				FB4DE3CE19E7D0AE00871A82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB4DE3E119E7D0E300871A82 /* Build configuration list for PBXNativeTarget "ScoopArticles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB4DE3E219E7D0E300871A82 /* Debug */,
+				FB4DE3E319E7D0E300871A82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB4DE39E19E7D0AE00871A82 /* Project object */;
+}

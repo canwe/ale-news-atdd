@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>974E52CE-68C0-4E4A-9430-16B6BA00EC6F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ALE-News</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2CD2377B69F77741EE23692138D25441213EB0DE</key>
+		<string>https://github.com/snscaimito/ale-news-atdd.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/ALE-News/ALE-News.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2CD2377B69F77741EE23692138D25441213EB0DE</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/snscaimito/ale-news-atdd.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2CD2377B69F77741EE23692138D25441213EB0DE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2CD2377B69F77741EE23692138D25441213EB0DE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>source</string>
+		</dict>
+	</array>
+</dict>
+</plist>

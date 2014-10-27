@@ -20,18 +20,24 @@
 }
 
 - (void)didSelectPost {
+    NSLog(@"didSelectPost") ;
     // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
+    
+    NSLog(@"contentText %@", self.contentText) ;
     
     // Perform the post operation.
     // When the operation is complete (probably asynchronously), the Share extension should notify the success or failure, as well as the items that were actually shared.
-    
     NSExtensionItem *inputItem = self.extensionContext.inputItems.firstObject;
     
-    NSExtensionItem *outputItem = [inputItem copy];
-    outputItem.attributedContentText = [[NSAttributedString alloc] initWithString:self.contentText attributes:nil];
-    // Complete this implementation by setting the appropriate value on the output item.
+    NSArray *attachments = inputItem.attachments ;
+    NSItemProvider *itemProvider = attachments[0] ;
+    NSArray *registeredTypeIdentifiers = [itemProvider registeredTypeIdentifiers];
+    NSLog(@"registeredTypeIdentifier %@", registeredTypeIdentifiers) ;
     
-    NSArray *outputItems = @[outputItem];
+//    [itemProvider loadItemForTypeIdentifier:@"public.url" options:nil completionHandler:nil] ;
+    
+    NSDictionary *userInfo = [inputItem.userInfo copy] ;
+    NSLog(@"userInfo %@", userInfo) ;
     
     // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
     [self.extensionContext completeRequestReturningItems:@[] completionHandler:nil];

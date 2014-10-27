@@ -8,7 +8,7 @@ if test $? -eq 0; then
 	SUCCESS_WEB=true
 	echo "[INFO] Making IOS Application"
 	cd ../ios/ALE-News
-	xcodebuild -scheme ALE-News build
+	xcodebuild build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 	if test $? -eq 0; then
 		SUCCESS_IOS=true

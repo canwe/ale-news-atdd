@@ -552,6 +552,7 @@
 				FB4DE3CB19E7D0AE00871A82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB4DE3CC19E7D0AE00871A82 /* Build configuration list for PBXNativeTarget "ALE-NewsTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +561,7 @@
 				FB4DE3CE19E7D0AE00871A82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB4DE3E119E7D0E300871A82 /* Build configuration list for PBXNativeTarget "ScoopArticles" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +570,7 @@
 				FB4DE3E319E7D0E300871A82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

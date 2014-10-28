@@ -1,0 +1,10 @@
+[caps]
+deviceName = "iPhone 6"
+platformName = "ios"
+platformVersion = "8.1"
+app = "Build/Debug-iphonesimulator/ALE-News.app"
+#    browserName: 'safari',
+
+[appium_lib]
+sauce_username = false
+sauce_access_key = false

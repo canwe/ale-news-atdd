@@ -1,13 +1,14 @@
 require 'rubygems'
 require 'appium_lib'
 
-APP_PATH = '/Users/sns/Library/Developer/Xcode/DerivedData/ALE-News-azbvdeystsxtirgkisypbbzfjvnd/Build/Products/Debug-iphonesimulator/ALE-News.app'
+APP_PATH = '/Users/sns/Documents/dev/ale-news-atdd/source/ios/ALE-News/build/Debug-iphoneos/ALE-News.app'
 
 desired_caps = {
   caps:       {
-    platformName:  'iOS',
-    versionNumber: '7.1',
     deviceName:    'iPhone Simulator',
+    platformVersion: '8.1',
+    platformName: 'ios',
+#    browserName: 'safari',
     app: APP_PATH
   },
   appium_lib: {
@@ -23,7 +24,10 @@ module ALENews
   module IOS
     Appium.promote_singleton_appium_methods ALENews
 
+    
     screenshot "./test.png"
+    
+    sleep 60
 
     # Quit when you're done!
     driver_quit

@@ -4,6 +4,7 @@ Scenario: Create new article metadata
 	When I post the following article metadata to the article service with URI "/article"
 		| Author         | Title                                            | location                                                                                                     |
 		| Stephan Schwab | From competition it is a big leap to cooperation | http://www.stephan-schwab.com/china/culture/management/thoughts/2014/08/30/collaboration-or-cooperation.html |
+		| Hans Moser | An experiment | http://some.where.org/index.html |
 	Then an article ID is returned
 	And the article metadata has been stored in the archive
 

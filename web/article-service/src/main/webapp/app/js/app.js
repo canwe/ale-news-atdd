@@ -1,6 +1,6 @@
 'use strict';
 
-var articleApp = angular.module('articleApp', ['ngRoute', 'articleControllers']);
+var articleApp = angular.module('articleApp', ['mgcrea.ngStrap', 'ngRoute', 'articleControllers']);
 
 articleApp.config(['$routeProvider',
   function($routeProvider) {
@@ -8,12 +8,12 @@ articleApp.config(['$routeProvider',
       when('/article/add', {
         templateUrl: 'partials/article/add.html'
       }).
-      when('/article', {
+      when('/list', {
         templateUrl: 'partials/article/list.html',
         controller: 'articleListController'
       }).
       otherwise({
-        redirectTo: '/article'
+        redirectTo: '/list'
       });
 
   }]);

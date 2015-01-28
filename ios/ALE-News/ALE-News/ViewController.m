@@ -24,8 +24,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)loadArticleMetadata:(id)sender {
-    NSLog(@"load article metadata") ;
-}
-
 @end

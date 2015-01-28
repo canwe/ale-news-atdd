@@ -10,6 +10,7 @@
     <modules>
         <module>common</module>
         <module>article-service</module>
+        <module>content-acquisition-service</module>
     </modules>
 
     <dependencyManagement>

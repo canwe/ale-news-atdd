@@ -1,5 +1,6 @@
 package net.caimito.ale_news.content.acquisition;
 
+import java.net.URL;
 import java.util.List;
 
 public class ContentAcquisitionDemon {
@@ -13,11 +14,11 @@ public class ContentAcquisitionDemon {
 
     public void startAcquisition() {
         for (ContentType contentType : ContentType.values()) {
-            List<String> locations = configuration.listSourceLocationsByType(contentType) ;
+            List<URL> locations = configuration.listSourceLocationsByType(contentType) ;
 
-            for (String location : locations) {
+            for (URL location : locations) {
                 ContentReader reader = ContentReaderSelector.selectReader(contentType) ;
-                Content content = reader.read() ;
+                Content content = reader.read(location) ;
 
                 messenger.triggerAnalysis(content) ;
             }

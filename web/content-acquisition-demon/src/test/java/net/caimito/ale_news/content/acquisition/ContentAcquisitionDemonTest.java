@@ -14,7 +14,7 @@ public class ContentAcquisitionDemonTest {
 
     @Test
     public void startAcquisition() {
-        String relativeLocationDemoFile = "content-acquisition-demon/src/test/resources/content.html" ;
+        String relativeLocationDemoFile = "src/test/resources/content.html" ;
 
         Configuration configuration = new Configuration() ;
         configuration.addSource(ContentType.HTML, String.format("file://%s/%s", System.getProperty("user.dir"), relativeLocationDemoFile)) ;

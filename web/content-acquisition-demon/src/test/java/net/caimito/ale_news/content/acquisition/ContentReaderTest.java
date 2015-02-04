@@ -13,7 +13,7 @@ public class ContentReaderTest {
 
     @Test
     public void readHTML() throws MalformedURLException {
-        String relativeLocationDemoFile = "content-acquisition-demon/src/test/resources/content.html" ;
+        String relativeLocationDemoFile = "src/test/resources/content.html" ;
         String location = String.format("file://%s/%s", System.getProperty("user.dir"), relativeLocationDemoFile) ;
 
         Content contentExpected = new Content() ;

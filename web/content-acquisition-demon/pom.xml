@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>content-acquisition-demon</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -71,8 +71,19 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.10.19</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
         </dependency>
     </dependencies>
 
@@ -80,38 +91,39 @@
         <finalName>content-acquisition-demon</finalName>
         <plugins>
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                    </webApp>
-                    <stopPort>9966</stopPort>
-                    <stopKey>foo</stopKey>
-                    <stopWait>10</stopWait>
-                    <scanIntervalSeconds>0</scanIntervalSeconds>
-                    <daemon>true</daemon>
-                    <requestLog implementation="org.eclipse.jetty.server.NCSARequestLog">
-                        <filename>target/request.log</filename>
-                        <append>false</append>
-                        <extended>false</extended>
-                        <logTimeZone>GMT</logTimeZone>
-                    </requestLog>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
                 <executions>
                     <execution>
-                        <id>start-jetty</id>
-                        <phase>pre-integration-test</phase>
+                        <phase>package</phase>
                         <goals>
-                            <goal>start</goal>
+                            <goal>shade</goal>
                         </goals>
-                    </execution>
-                    <execution>
-                        <id>stop-jetty</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <!--
+                                        Exclude files that sign a jar
+                                        (one or multiple of the dependencies).
+                                        One may not repack a signed jar without
+                                        this, or you will get a
+                                        SecurityException at program start.
+                                    -->
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                        <exclude>META-INF/*.INF</exclude> <!-- This one may not be required -->
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>net.caimito.ale_news.content.acquisition.Application</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

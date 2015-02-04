@@ -1,5 +1,7 @@
 package net.caimito.ale_news.content.acquisition;
 
+import org.springframework.stereotype.Component;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class Configuration {
     Map<ContentType, List<URL>> sourceLocations = new HashMap<ContentType, List<URL>>() ;
 

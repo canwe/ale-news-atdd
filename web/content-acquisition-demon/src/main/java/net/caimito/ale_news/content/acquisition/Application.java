@@ -7,12 +7,12 @@ import org.springframework.context.annotation.*;
 
 @ComponentScan
 public class Application {
-    protected static Log logger = LogFactory.getLog(Application.class) ;
 
     public static void main(String[] args) {
-        logger.info("Content Acquisition Demon starting");
-
         ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
+        DatabaseMigration databaseMigration = context.getBean(DatabaseMigration.class) ;
+        databaseMigration.migrate() ;
+
         ContentAcquisitionDemon contentAcquisitionDemon = context.getBean(ContentAcquisitionDemon.class) ;
         contentAcquisitionDemon.startAcquisition(); ;
     }

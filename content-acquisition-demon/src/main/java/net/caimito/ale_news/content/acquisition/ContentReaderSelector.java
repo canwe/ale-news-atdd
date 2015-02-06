@@ -6,6 +6,8 @@ public class ContentReaderSelector {
         switch (contentType) {
             case HTML:
                 return new HTMLContentReader() ;
+            case RSS:
+                return new RSSContentReader() ;
             default:
                 throw new RuntimeException(String.format("Unknown content type %s", contentType)) ;
         }

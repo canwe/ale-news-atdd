@@ -17,7 +17,7 @@ public class ContentReaderTest {
         String location = String.format("file://%s/%s", System.getProperty("user.dir"), relativeLocationDemoFile) ;
 
         Content contentExpected = new Content() ;
-        contentExpected.setContentType(ContentType.HTML);
+        contentExpected.setBodyContentType(ContentType.HTML);
         contentExpected.setBody(TestHelper.readFile(relativeLocationDemoFile));
 
         ContentReader reader = new HTMLContentReader() ;

@@ -29,12 +29,12 @@ public class ContentAcquisitionDemon {
     public void startAcquisition() {
         logger.info("Content acquisition starting");
         for (ContentType contentType : ContentType.values()) {
-            logger.info(String.format("Listing for content type %s", contentType)) ;
+            logger.debug(String.format("Listing for content type %s", contentType)) ;
             List<URL> locations = configurationService.listSourceLocationsByType(contentType) ;
-            logger.info(String.format("Found locations %s", locations)) ;
+            logger.debug(String.format("Found locations %s", locations)) ;
 
             for (URL location : locations) {
-                logger.info(String.format("Reading from %s", location)) ;
+                logger.debug(String.format("Reading from %s", location)) ;
                 ContentReader reader = ContentReaderSelector.selectReader(contentType) ;
                 Content content = reader.read(location) ;
 

@@ -3,14 +3,26 @@ package net.caimito.ale_news.content.acquisition;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Content {
-    private ContentType contentType;
+    private ContentType bodyContentType;
     private String body;
+    private String language ;
+    private URL sourceLocation;
+    private String title ;
+    private Date publishedDate ;
+    private String author ;
+    private List<String> categories ;
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this) ;
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE) ;
     }
 
     @Override
@@ -23,12 +35,12 @@ public class Content {
         return HashCodeBuilder.reflectionHashCode(17, 5, this) ;
     }
 
-    public void setContentType(ContentType contentType) {
-        this.contentType = contentType;
+    public void setBodyContentType(ContentType bodyContentType) {
+        this.bodyContentType = bodyContentType;
     }
 
-    public ContentType getContentType() {
-        return contentType;
+    public ContentType getBodyContentType() {
+        return bodyContentType;
     }
 
     public void setBody(String body) {
@@ -37,5 +49,56 @@ public class Content {
 
     public String getBody() {
         return body;
+    }
+
+    public void setSourceLocation(URL location) {
+        this.sourceLocation = location;
+    }
+
+    public URL getSourceLocation() {
+        return sourceLocation;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(Date publishedDate) {
+        this.publishedDate = publishedDate;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public List<String> getCategories() {
+        return categories;
+    }
+
+    public void addCategory(String category) {
+        if (categories == null)
+            categories = new ArrayList<String>() ;
+
+        categories.add(category) ;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

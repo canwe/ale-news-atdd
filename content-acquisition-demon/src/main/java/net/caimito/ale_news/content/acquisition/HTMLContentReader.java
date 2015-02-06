@@ -25,7 +25,7 @@ public class HTMLContentReader implements ContentReader {
         }
 
         Content content = new Content() ;
-        content.setContentType(ContentType.HTML);
+        content.setBodyContentType(ContentType.HTML);
         content.setBody(out.toString());
 
         return content ;

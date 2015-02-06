@@ -49,7 +49,12 @@
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
         </dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+    </dependencies>
 	<build>
 		<finalName>content-acquisition-demon</finalName>
 		<plugins>

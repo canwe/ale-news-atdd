@@ -11,7 +11,7 @@ public class FakeContentMessenger implements ContentMessenger {
     protected Log logger = LogFactory.getLog(FakeContentMessenger.class) ;
 
     @Override
-    public void triggerAnalysis(Content content) {
+    public void publish(Content content) {
         JSONObject jsonObject = new JSONObject(content) ;
         logger.info("FAKE sending out " + jsonObject.toString(2));
     }

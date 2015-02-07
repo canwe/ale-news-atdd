@@ -1,4 +1,4 @@
-package net.caimito.ale_news.content.acquisition;
+package net.caimito.ale_news.content;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

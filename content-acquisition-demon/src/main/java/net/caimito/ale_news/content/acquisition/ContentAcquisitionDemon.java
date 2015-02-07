@@ -1,9 +1,9 @@
 package net.caimito.ale_news.content.acquisition;
 
+import net.caimito.ale_news.content.analysis.LinkFinder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -18,11 +18,13 @@ public class ContentAcquisitionDemon {
 
     private final ConfigurationService configurationService;
     private final ContentMessenger messenger ;
+    private final LinkFinder linkFinder;
 
     @Autowired
-    public ContentAcquisitionDemon(ConfigurationService configurationService, ContentMessenger messenger) {
+    public ContentAcquisitionDemon(ConfigurationService configurationService, ContentMessenger messenger, LinkFinder linkFinder) {
         this.configurationService = configurationService;
         this.messenger = messenger ;
+        this.linkFinder = linkFinder ;
     }
 
     @Scheduled(fixedRate = 1000 * 60 * 12)
@@ -38,7 +40,9 @@ public class ContentAcquisitionDemon {
                 ContentReader reader = ContentReaderSelector.selectReader(contentType) ;
                 Content content = reader.read(location) ;
 
-                messenger.triggerAnalysis(content) ;
+                content = linkFinder.findOutgoingLinks(content) ;
+
+                messenger.publish(content) ;
             }
         }
     }

@@ -19,6 +19,7 @@ public class Content {
     private Date publishedDate ;
     private String author ;
     private List<String> categories ;
+    private List<URL> outgoingLinks;
 
     @Override
     public String toString() {
@@ -100,5 +101,19 @@ public class Content {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public void addOutgoingLink(URL link) {
+        if (outgoingLinks == null)
+            outgoingLinks = new ArrayList<URL>() ;
+
+        outgoingLinks.add(link);
+    }
+
+    public List<URL> getOutgoingLinks() {
+        if (outgoingLinks == null)
+            outgoingLinks = new ArrayList<URL>() ;
+
+        return outgoingLinks;
     }
 }

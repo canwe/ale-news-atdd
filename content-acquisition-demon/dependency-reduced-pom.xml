@@ -32,7 +32,7 @@
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>net.caimito.ale_news.content.acquisition.Application</mainClass>
+                  <mainClass>net.caimito.ale_news.content.Application</mainClass>
                 </transformer>
               </transformers>
             </configuration>

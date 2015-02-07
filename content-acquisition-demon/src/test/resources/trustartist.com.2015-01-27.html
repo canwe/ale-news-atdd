@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="de-Sie" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Trust Artist Pair Programming Economics - Trust Artist</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold" />
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" />
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" />
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" />
+
+
+    <link rel="stylesheet" href="http://trustartist.com/wp-content/themes/baylie/style.css" type="text/css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="Trust Artist RSS Feed" href="http://trustartist.com/feed/" />
+    <link rel="alternate" type="application/atom+xml" title="Trust Artist Atom Feed" href="http://trustartist.com/feed/atom/" />
+    <link rel="pingback" href="http://trustartist.com/xmlrpc.php" />
+
+
+
+
+    <!-- This site is optimized with the Yoast WordPress SEO plugin v1.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <meta name="description" content="Developers spend 70% of their time reading code, 20% solving problems and 10% writing. 90% of their work is quicker with two minds, 10% limited by fingers."/>
+    <link rel="canonical" href="http://trustartist.com/2015/01/27/pair-programming-economics/" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Pair Programming Economics - Trust Artist" />
+    <meta property="og:description" content="Developers spend 70% of their time reading code, 20% solving problems and 10% writing. 90% of their work is quicker with two minds, 10% limited by fingers." />
+    <meta property="og:url" content="http://trustartist.com/2015/01/27/pair-programming-economics/" />
+    <meta property="og:site_name" content="Trust Artist" />
+    <meta property="article:author" content="https://www.facebook.com/OlafLewitz" />
+    <meta property="article:tag" content="pair programming" />
+    <meta property="article:tag" content="TDD" />
+    <meta property="article:section" content="Agile with a Purpose" />
+    <meta property="article:section" content="Conference" />
+    <meta property="article:section" content="Programming" />
+    <meta property="article:published_time" content="2015-01-27T00:25:35+00:00" />
+    <meta property="article:modified_time" content="2015-01-27T16:02:38+00:00" />
+    <meta property="og:updated_time" content="2015-01-27T16:02:38+00:00" />
+    <meta property="fb:admins" content="1282795583" />
+    <meta property="og:image" content="http://trustartist.com/wp-content/uploads/2015/01/PPEconomics.png" />
+    <!-- / Yoast WordPress SEO plugin. -->
+
+    <link rel="alternate" type="application/rss+xml" title="Trust Artist &raquo; Pair Programming Economics Comments Feed" href="http://trustartist.com/2015/01/27/pair-programming-economics/feed/" />
+    <link rel='stylesheet' id='events-manager-css'  href='http://trustartist.com/wp-content/plugins/events-manager/includes/css/events_manager.css?ver=5.55' type='text/css' media='all' />
+    <link rel='stylesheet' id='superfish-css'  href='http://trustartist.com/wp-content/themes/baylie/css/superfish.css?ver=1.4.8' type='text/css' media='all' />
+    <link rel='stylesheet' id='slideshow-css'  href='http://trustartist.com/wp-content/themes/baylie/css/flexslider.css?ver=1.8' type='text/css' media='all' />
+    <link rel='stylesheet' id='genericons-css'  href='http://trustartist.com/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='jetpack_css-css'  href='http://trustartist.com/wp-content/plugins/jetpack/css/jetpack.css?ver=3.3' type='text/css' media='all' />
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-content/plugins/amazon-product-in-a-post-plugin/js/amazon-lightbox.js?ver=3.9.3'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.core.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.widget.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.position.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.mouse.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.sortable.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.datepicker.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.menu.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.autocomplete.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.resizable.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.draggable.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.button.min.js?ver=1.10.4'></script>
+    <script type='text/javascript' src='http://trustartist.com/wp-includes/js/jquery/ui/jquery.ui.dialog.min.js?ver=1.10.4'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var EM = {"ajaxurl":"http:\/\/trustartist.com\/wp-admin\/admin-ajax.php","locationajaxurl":"http:\/\/trustartist.com\/wp-admin\/admin-ajax.php?action=locations_search","firstDay":"1","locale":"de","dateFormat":"dd.mm.yy","ui_css":"http:\/\/trustartist.com\/wp-content\/plugins\/events-manager\/includes\/css\/ui-lightness.css","show24hours":"1","is_ssl":"","bookingInProgress":"Please wait while the booking is being submitted.","tickets_save":"Save Ticket","bookingajaxurl":"http:\/\/trustartist.com\/wp-admin\/admin-ajax.php","bookings_export_save":"Export Bookings","bookings_settings_save":"Save Settings","booking_delete":"Are you sure you want to delete?","bb_full":"Sold Out","bb_book":"Book Now","bb_booking":"Booking...","bb_booked":"Booking Submitted","bb_error":"Booking Error. Try again?","bb_cancel":"Cancel","bb_canceling":"Canceling...","bb_cancelled":"Cancelled","bb_cancel_error":"Cancellation Error. Try again?","txt_search":"Search","txt_searching":"Searching...","txt_loading":"Loading...","locale_data":{"closeText":"schlie\u00dfen","prevText":"<zur\u00fcck","nextText":"Vor>","currentText":"heute","monthNames":["Januar","Februar","M\u00e4rz","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],"monthNamesShort":["Jan","Feb","M\u00e4r","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"],"dayNames":["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],"dayNamesShort":["So","Mo","Di","Mi","Do","Fr","Sa"],"dayNamesMin":["So","Mo","Di","Mi","Do","Fr","Sa"],"weekHeader":"Wo","dateFormat":"dd.mm.yy","firstDay":1,"isRTL":false,"showMonthAfterYear":false,"yearSuffix":""}};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://trustartist.com/wp-content/plugins/events-manager/includes/js/events-manager.js?ver=5.55'></script>
+    <meta name="generator" content="WordPress 3.9.3" />
+    <link rel='shortlink' href='http://wp.me/p47OLQ-I0' />
+    <!-- Amazon Product In a Post Plugin Styles & Scripts - Version 3.5.2 -->
+    <link rel="stylesheet" href="http://trustartist.com/index.php?apipp_style=default" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://trustartist.com/wp-content/plugins/amazon-product-in-a-post-plugin/css/amazon-lightbox.css" type="text/css" media="screen" />
+    <!-- End Amazon Product In a Post Plugin Styles & Scripts-->
+    <script type="text/javascript">//<![CDATA[
+    var vcHost = document.location.protocol == "https:" ? "https://" : "http://";
+    var vcUrl = "www.vcita.com" + "/" + "40ef2124" + '/loader.js';
+    document.write(unescape("%3Cscript src='" + vcHost + vcUrl + "' type='text/javascript'%3E%3C/script%3E"));
+    //]]></script>
+
+
+    <!-- Protected by WP-SpamFree v2.1.1.2 :: JS BEGIN -->
+    <script type="text/javascript" src="http://trustartist.com/wp-content/plugins/wp-spamfree/js/wpsfv2-js.php"></script>
+    <!-- Protected by WP-SpamFree v2.1.1.2 :: JS END -->
+
+    <meta name="generator" content=" " />
+
+    <style type="text/css" media="screen">
+
+
+        #mainNav ul a{ font-family: 'Nobile'; }
+        h1, h2, h3, h4, h5, h6, .homeSection h3, #pageHead h1, .widgetBox span.title { font-family: 'Nobile' !important; }
+        .sectionHead p{ font-family: 'Nobile'; }
+        body { font-family: 'Nobile'; }
+        .home .slideshow h1,.home .slideshow h2,.home .slideshow h3,.home .slideshow h4,.home .slideshow h5 { font-family: 'Nobile' !important; }
+        .home .slideshow p { font-family: 'Nobile'; }
+        #homeMessage p { font-family: 'Nobile'; }
+
+
+
+
+        blockquote, address {
+            border-left: 5px solid #85bec4;
+        }
+        #filterNav .selected, #filterNav a.selected:hover {
+            background-color: #85bec4;
+        }
+
+        .posts .post .date
+        {
+            background-color: #85bec4 !important;
+        }
+        #content .project.small .inside{
+            background-color: #85bec4 !important;
+        }
+
+        #homeMessage {
+            background-color: #252525;
+        }
+
+        #mainNav ul a, #mainNav ul li.sfHover ul a { color: #8f8f8f !important;	}
+        #mainNav ul li.current a,
+        #mainNav ul li.current-cat a,
+        #mainNav ul li.current_page_item a,
+        #mainNav ul li.current-menu-item a,
+        #mainNav ul li.current-post-ancestor a,
+        .single-post #mainNav ul li.current_page_parent a,
+        #mainNav ul li.current-category-parent a,
+        #mainNav ul li.current-category-ancestor a,
+        #mainNav ul li.current-portfolio-ancestor a,
+        #mainNav ul li.current-projects-ancestor a {
+            color: #2e2e2e !important;
+        }
+        #mainNav ul li.sfHover a,
+        #mainNav ul li a:hover,
+        #mainNav ul li:hover {
+            color: #2e2e2e !important;
+        }
+        #mainNav ul li.sfHover ul a:hover { color: #2e2e2e !important;}
+
+        a { color: #4da7ca;}
+        a:hover {color: #4290ae;}
+        .button, #searchsubmit, input[type="submit"] {background-color: #757575;}
+
+
+    </style>
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="http://trustartist.com/wp-content/themes/baylie/css/ie8.css" type="text/css" media="screen" />
+    <![endif]-->
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+
+
+    <style type="text/css">.broken_link, a.broken_link {
+        text-decoration: line-through;
+    }</style>		<link rel="stylesheet" id="custom-css-css" type="text/css" href="http://trustartist.com/?custom-css=1&#038;csblog=1&#038;cscache=6&#038;csrev=48" />
+
+</head>
+
+<body class="single single-post postid-2728 single-format-standard safari has-slideshow" >
+
+<div id="container">
+    <div id="header">
+        <div class="bottom">
+            <div class="surround">
+                <div class="inside clearfix">
+
+                    <div id="logo">
+
+                        <h3 class="logo"><a href="http://trustartist.com"><img src="http://trustartist.com/wp-content/uploads/2013/11/TrustArtist300.jpeg" alt="Trust Artist" /></a></h3>
+
+                    </div>
+
+                    <div id="mainNav" class="clearfix">
+                        <div class="menu-main-container"><ul id="menu-main" class="sf-menu"><li id="menu-item-1729" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-1729"><a href="http://trustartist.com/posts/">Posts</a></li>
+                            <li id="menu-item-2035" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2035"><a href="http://trustartist.com/service-portfolio/">Portfolio</a></li>
+                            <li id="menu-item-1964" class="menu-item menu-item-type-post_type menu-item-object-project menu-item-1964"><a href="http://trustartist.com/project/temenos/">Temenos</a></li>
+                            <li id="menu-item-1533" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1533"><a href="http://trustartist.com/temenos-lab-deutsch/">Trust Temenos — Deutsch</a></li>
+                            <li id="menu-item-1534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1534"><a href="http://trustartist.com/impressum/">Impressum</a></li>
+                        </ul></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pageHead">
+        <h1>Posts</h1>
+    </div>
+    <div id="middle" class="clearfix">
+        <div id="content" class="twoThirds">
+
+            <div class="post-2728 post type-post status-publish format-standard has-post-thumbnail hentry category-agile-with-a-purpose category-conference category-programming tag-pair-programming tag-tdd">
+                <h1>Pair Programming Economics</h1>
+                <div class="meta clearfix">
+
+                    Posted
+                    by <a href="http://trustartist.com/author/admin/" title="Posts by Olaf" rel="author">Olaf</a>				on Jan 27, 2015				in <a href="http://trustartist.com/agile-with-a-purpose/" title="View all posts in Agile with a Purpose" rel="category tag">Agile with a Purpose</a>, <a href="http://trustartist.com/conference/" title="View all posts in Conference" rel="category tag">Conference</a>, <a href="http://trustartist.com/programming/" title="View all posts in Programming" rel="category tag">Programming</a>				 |
+                    <a href="http://trustartist.com/2015/01/27/pair-programming-economics/#comments">One Comment</a>
+                </div>
+
+
+                <p>I&#8217;m at OOP this week and had the pleasure yesterday to meet <a href="http://wingman-sw.com/about">James Grenning</a> for the first time. We had an inspiring conversation last night exchanging tips and strategies on how we inspire developers to try XP practices like TDD and pair programming.</p>
+                <p>I really like his approach for TDD. James asks devs at the beginning of a course: List what you like about developing software, and what you don&#8217;t like. After practicing TDD in the course, students have learned that TDD helps them spend more time on the things in the first list and less on the things in the second&#8230;</p>
+                <h2>Pair Programming Saves Time</h2>
+                <p>How do we spend our time when we develop software? My rough heuristics is this: We spend</p>
+                <ul>
+                    <li>70% of our time reading code and trying to understand it,</li>
+                    <li>20% of our time solving problems, creating solutions, and</li>
+                    <li>10% of our time actually writing code (aka typing).</li>
+                </ul>
+                <div id="attachment_2730" style="width: 590px" class="wp-caption aligncenter"><a href="http://i2.wp.com/trustartist.com/wp-content/uploads/2015/01/PPEconomics.png"><img class="wp-image-2730 size-medium" src="http://i2.wp.com/trustartist.com/wp-content/uploads/2015/01/PPEconomics.png?resize=580%2C435" alt="Pair Programming Economics" data-recalc-dims="1" /></a>
+                    <p class="wp-caption-text">Pair Programming Economics</p>
+                </div>
+                <p>This model has been convincing to managers and devs alike:</p>
+                <p>Managers understand that their concern that two expensive minds will be wasted using only one keyboard is based on a misinformation. The one keyboard for two pairs of hands can only be a limiting factor if we spend most of our time typing.</p>
+                <p>90% of our work is more effective using two minds:</p>
+                <ul>
+                    <li>We will understand the code faster which we want to change, and be more courageous in changing it so we may move forward faster.</li>
+                    <li>We will solve the problem faster and potentially find a better solution more quickly as we have more available options in two brains.</li>
+                    <li>While one of us is typing, the other&#8217;s awareness increases quality: catching mistakes faster than the compiler/the tests could.</li>
+                </ul>
+                <h2>Feedback</h2>
+                <p>What do you think? How do you explain the benefits of pair programming and other XP practices? Thanks for joining the conversation!
+                <div class="sharedaddy sd-sharing-enabled">
+                    <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
+                        <h3 class="sd-title">Share this:</h3>
+                        <div class="sd-content">
+                            <ul>
+                                <li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-2728" class="share-twitter sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/?share=twitter" title="Click to share on Twitter"><span>Twitter</span></a></li>
+                                <li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-2728" class="share-google-plus-1 sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/?share=google-plus-1" title="Click to share on Google+"><span>Google</span></a></li>
+                                <li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-2728" class="share-linkedin sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/?share=linkedin" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li>
+                                <li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-2728" class="share-facebook sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/?share=facebook" title="Share on Facebook"><span>Facebook</span></a></li>
+                                <li><a href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li>
+                                <li class="share-end"></li>
+                            </ul>
+                            <div class="sharing-hidden">
+                                <div class="inner" style="display: none;">
+                                    <ul>
+                                        <li class="share-print"><a rel="nofollow" data-shared="" class="share-print sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/#print" title="Click to print"><span>Print</span></a></li>
+                                        <li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/?share=reddit" title="Click to share on Reddit"><span>Reddit</span></a></li>
+                                        <li class="share-end"></li>
+                                        <li class="share-stumbleupon"><a rel="nofollow" data-shared="" class="share-stumbleupon sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/?share=stumbleupon" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li>
+                                        <li class="share-email"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="http://trustartist.com/2015/01/27/pair-programming-economics/?share=email" title="Click to email this to a friend"><span>Email</span></a></li>
+                                        <li class="share-end"></li>
+                                        <li class="share-end"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-60968806-2728-54d6068718208' data-src='//widgets.wp.com/likes/#blog_id=60968806&amp;post_id=2728&amp;origin=trustartist.com&amp;obj_id=60968806-2728-54d6068718208' data-name='like-post-frame-60968806-2728-54d6068718208'>
+                    <h3 class='sd-title'>Like this:</h3>
+                    <div class='likes-widget-placeholder post-likes-widget-placeholder' style='height:55px'><span class='button'><span>Like</span></span> <span class="loading">Loading&#8230;</span></div>
+                    <p><span class='sd-text-color'></span><a class='sd-link-color'></a></div>
+
+
+            </div>
+
+            <div id="commentBox" >
+
+                <div id="comments" class="">
+
+
+                    <h3>1 Comment</h3>
+
+
+
+                    <ol id="commentslist" class="clearfix">
+
+                        <li id="li-comment-720">
+
+                            <div class="comment pingback" id="comment-720">
+
+
+
+                                <h5><a href='http://www.geoffmazeroff.com/2015/02/02/professional-development-2015-week-5/' rel='external nofollow' class='url'>Professional Development &#8211; 2015 &#8211; Week 5</a></h5>
+                                <span class="date">2015/02/02</span>
+
+
+                                <p>[&#8230;] Pair Programming Economics (via Brendan Enrick) [&#8230;]</p>
+
+
+
+                            </div><!-- end comment -->
+
+                        </li><!-- #comment-## -->
+                    </ol>
+
+                    <div class="pagination clearfix">
+
+                    </div>
+
+
+
+
+                </div><!-- end comments -->
+
+
+
+                <div id="commentForm" class="clear">
+
+                    <div id="respond">
+
+                        <h3>Leave a Reply</h3>
+
+
+                        <form action="http://trustartist.com/wp-comments-post.php" method="post" >
+
+
+                            <p><input type="text" name="author" id="author" value="" size="32" tabindex="1" aria-required='true' />
+                                <label for="author">Name (required)</label></p>
+
+                            <p><input type="text" name="email" id="email" value="" size="32" tabindex="2" aria-required='true' />
+                                <label for="email">Email (required)</label></p>
+
+                            <p><input type="text" name="url" id="url" value="" size="32" tabindex="3" />
+                                <label for="url">Website </label></p>
+
+
+                            <p><textarea name="comment" id="comment" cols="55" rows="12" tabindex="4"></textarea></p>
+
+                            <p>
+                                <input name="submit" type="submit" class="button" id="submit" tabindex="5" value="Submit Comment" /> <a rel="nofollow" id="cancel-comment-reply-link" href="/2015/01/27/pair-programming-economics/#respond" style="display:none;">Cancel Reply</a>	<input type='hidden' name='comment_post_ID' value='2728' id='comment_post_ID' />
+                                <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+                            </p>
+
+                            <script type='text/javascript'>
+                                <!--
+                                refJS = escape( document[ 'referrer' ] );
+                                document.write("<input type='hidden' name='refJS' value='"+refJS+"'>");
+                                // -->
+                            </script>
+                            <p style="font-size:9px;clear:both;">WP-SpamFree by <a rel="nofollow" href="http://www.polepositionmarketing.com/library/wp-spamfree/" title="WP-SpamFree WordPress Anti-Spam Plugin" >Pole Position Marketing</a>
+
+                            <p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p>
+                        </form>
+
+                    </div>
+
+                </div><!-- end commentform -->
+
+
+            </div>
+
+        </div>
+        <div id="sidebar" class="clearfix">
+
+
+
+            <div id="search-4" class="widget_search sidebarBox widgetBox"><form method="get" id="searchform"   action="http://trustartist.com/">
+                <input type="text" value="Type and press enter to search."   name="s" id="s"
+                       onblur="if (this.value == '')   {this.value = 'Type and press enter to search.';}"
+                       onfocus="if (this.value == 'Type and press enter to search.'){this.value = '';}" />
+                <input type="hidden" id="searchsubmit" />
+            </form></div><div id="em_widget-3" class="widget_em_widget sidebarBox widgetBox"><span class="widgetTitle">Events</span><ul><li>No events</li></ul></div>
+            <div id="ttrust_recent_posts-2" class="ttrust_recent_posts sidebarBox widgetBox">			<span class="widgetTitle">Recent Posts</span>
+
+                <ul class="widgetList">
+                    <li class="clearfix">
+                        <p class="title"><a href="http://trustartist.com/2015/01/28/oop-descale-organisation/" title="OOP Descale Your Organisation!">OOP Descale Your Organisation! </a></p>
+                        <span class="meta">2015/01/28 </span>
+                    </li>
+                    <li class="clearfix">
+                        <p class="title"><a href="http://trustartist.com/2015/01/27/pair-programming-economics/" title="Pair Programming Economics">Pair Programming Economics </a></p>
+                        <span class="meta">2015/01/27 </span>
+                    </li>
+                    <li class="clearfix">
+                        <p class="title"><a href="http://trustartist.com/2015/01/22/clean-learning-at-your-best/" title="Clean Learning at your Best">Clean Learning at your Best </a></p>
+                        <span class="meta">2015/01/22 </span>
+                    </li>
+                    <li class="clearfix">
+                        <p class="title"><a href="http://trustartist.com/2015/01/19/vast-cycle-for-connection/" title="VAST &#8211; Virtuous Cycle for Connection">VAST &#8211; Virtuous Cycle for Connection </a></p>
+                        <span class="meta">2015/01/19 </span>
+                    </li>
+                    <li class="clearfix">
+                        <p class="title"><a href="http://trustartist.com/2015/01/17/management-and-leadership/" title="Management AND Leadership">Management AND Leadership </a></p>
+                        <span class="meta">2015/01/17 </span>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div id="ttrust_testimonials-2" class="ttrust_testimonials sidebarBox widgetBox">			<span class="widgetTitle">Testimonials</span>
+
+
+                <div class="clearfix">
+                    <img src="http://i0.wp.com/trustartist.com/wp-content/uploads/2014/01/Futurice-VP-Europe-Sampo-Hamalainen.png?resize=120%2C120" class=" wp-post-image" alt="Sampo Hämäläinen, VP Europe, Futurice Group" title="Sampo Hämäläinen, VP Europe, Futurice Group" />
+                    <p>“We used Agile42 for coaching our team and that&#8217;s how I got to know Olaf. He became a regular Futurice hang around, a friend, which we are extremely glad of since we share many values. Olaf is an excellent speaker and inspirational thinker who understands that respecting people is everything. If your organization needs to refine its way of working, become lean and think out-of-the-box, then call Olaf.”</p>
+
+                    <span class="title"><span>- Sampo Hämäläinen, VP Europe, Futurice Group</span></span>
+                </div>
+
+            </div>
+
+            <div id="blog_subscription-4" class="jetpack_subscription_widget sidebarBox widgetBox"><span class="widgetTitle"><label for="subscribe-field">Subscribe to Blog via Email</label></span>
+                <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-4">
+                    <div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+                    </div><p>Join 18 other subscribers</p>
+
+                    <p id="subscribe-email">
+                        <label id="jetpack-subscribe-label" for="subscribe-field">
+                            Email Address				</label>
+                        <input type="email" name="email" value="Email Address" id="subscribe-field" placeholder="Email Address" />
+                    </p>
+
+                    <p id="subscribe-submit">
+                        <input type="hidden" name="action" value="subscribe" />
+                        <input type="hidden" name="source" value="http://trustartist.com/2015/01/27/pair-programming-economics/" />
+                        <input type="hidden" name="sub-type" value="widget" />
+                        <input type="hidden" name="redirect_fragment" value="blog_subscription-4" />
+                        <input type="submit" value="Subscribe" name="jetpack_subscriptions_widget" />
+                    </p>
+                </form>
+
+                <script>
+                    ( function( d ) {
+                        if ( ( 'placeholder' in d.createElement( 'input' ) ) ) {
+                            var label = d.getElementById( 'jetpack-subscribe-label' );
+                            label.style.clip 	 = 'rect(1px, 1px, 1px, 1px)';
+                            label.style.position = 'absolute';
+                            label.style.height   = '1px';
+                            label.style.width    = '1px';
+                            label.style.overflow = 'hidden';
+                        }
+                    } ) ( document );
+                </script>
+
+
+            </div>
+
+        </div><!-- end sidebar -->
+    </div>
+
+    <div id="footer" >
+        <div class="main">
+            <div class="inside clearfix">
+
+
+
+
+            </div><!-- end footer inside-->
+        </div><!-- end footer main -->
+
+        <div class="secondary">
+            <div class="inside clearfix">
+                <div class="left"><p>&copy; 2015 <a href="http://trustartist.com"><strong>Trust Artist</strong></a> All Rights Reserved.</p></div>
+                <div class="right"><p>Theme by <a href="http://themetrust.com" title="Premium WordPress Themes"><strong>Theme Trust</strong></a></p></div>
+            </div><!-- end footer inside-->
+        </div><!-- end footer secondary-->
+
+    </div><!-- end footer -->
+</div><!-- end container -->
+<div style="display:none">
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(document).ready(function(){
+
+        jQuery('.flexslider.primary').flexslider({
+            slideshowSpeed: 6000,
+            directionNav: true,
+            slideshow: 1,
+            animation: 'fade',
+            animationLoop: true
+        });
+
+    });
+    //]]>
+</script>
+<script type="text/javascript">
+    WPCOM_sharing_counts = {"http:\/\/trustartist.com\/2015\/01\/27\/pair-programming-economics\/":2728}	</script>
+<script type="text/javascript">
+    jQuery(document).on( 'ready post-load', function(){
+        jQuery( 'a.share-twitter' ).on( 'click', function() {
+            window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript">
+    jQuery(document).on( 'ready post-load', function(){
+        jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+            window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript">
+    jQuery(document).on( 'ready post-load', function(){
+        jQuery( 'a.share-linkedin' ).on( 'click', function() {
+            window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript">
+    jQuery(document).on( 'ready post-load', function(){
+        jQuery( 'a.share-facebook' ).on( 'click', function() {
+            window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+            return false;
+        });
+    });
+</script>
+<div id="sharing_email" style="display: none;">
+    <form action="/2015/01/27/pair-programming-economics/" method="post">
+        <label for="target_email">Send to Email Address</label>
+        <input type="email" name="target_email" id="target_email" value="" />
+
+
+        <label for="source_name">Your Name</label>
+        <input type="text" name="source_name" id="source_name" value="" />
+
+        <label for="source_email">Your Email Address</label>
+        <input type="email" name="source_email" id="source_email" value="" />
+
+
+
+        <img style="float: right; display: none" class="loading" src="http://trustartist.com/wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+        <input type="submit" value="Send Email" class="sharing_send" />
+        <a href="#cancel" class="sharing_cancel">Cancel</a>
+
+        <div class="errors errors-1" style="display: none;">
+            Post was not sent - check your email addresses!			</div>
+
+        <div class="errors errors-2" style="display: none;">
+            Email check failed, please try again			</div>
+
+        <div class="errors errors-3" style="display: none;">
+            Sorry, your blog cannot share posts by email.			</div>
+    </form>
+</div>
+<script type='text/javascript' src='http://trustartist.com/wp-includes/js/comment-reply.min.js?ver=3.9.3'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/plugins/jetpack/modules/photon/photon.js?ver=20130122'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201506'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2015Febaa'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var WPGroHo = {"my_hash":""};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/plugins/jetpack/modules/wpgroho.js?ver=3.9.3'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/superfish.js?ver=1.4.8'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/jquery.fitvids.js?ver=1.0'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/jquery.actual.min.js?ver=1.8.13'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/tinynav.min.js?ver=1.05'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/jquery.scrollTo.min.js?ver=1.4.6'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/jquery.isotope.min.js?ver=1.3.110525'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/jquery.flexslider-min.js?ver=1.8'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/themes/baylie/js/theme_trust.js?ver=1.0'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/plugins/jetpack/_inc/postmessage.js?ver=3.3'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/plugins/jetpack/_inc/jquery.jetpack-resize.js?ver=3.3'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/plugins/jetpack/_inc/jquery.inview.js?ver=3.3'></script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/plugins/jetpack/modules/likes/queuehandler.js?ver=3.3'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var sharing_js_options = {"lang":"en","counts":"1"};
+    /* ]]> */
+</script>
+<script type='text/javascript' src='http://trustartist.com/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=20140920'></script>
+<iframe src='http://widgets.wp.com/likes/master.html?ver=20141028#ver=20141028&amp;lang=de&amp;mp6=0' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+<div id='likes-other-gravatars'><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+
+<script src="http://stats.wp.com/e-201506.js" type="text/javascript"></script>
+<script type="text/javascript">
+    st_go({v:'ext',j:'1:3.3',blog:'60968806',post:'2728',tz:'2'});
+    var load_cmc = function(){linktracker_init(60968806,2728,2);};
+    if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+    else load_cmc();
+</script></body>
+</html>

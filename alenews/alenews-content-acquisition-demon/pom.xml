@@ -2,8 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.caimito.ale_news</groupId>
-	<artifactId>content-acquisition-demon</artifactId>
+	<artifactId>alenews-content-acquisition-demon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+    <name>ALE News Content Acquisition Demon</name>
 	<parent>
         <groupId>net.caimito</groupId>
         <artifactId>alenews</artifactId>
@@ -76,7 +77,7 @@
         </dependency>
     </dependencies>
 	<build>
-		<finalName>content-acquisition-demon</finalName>
+		<finalName>alenews-content-acquisition-demon</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

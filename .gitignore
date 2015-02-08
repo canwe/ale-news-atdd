@@ -4,6 +4,7 @@ target/
 .settings
 .project
 .classpath
+dependency-reduced-pom.xml
 bower_components
 npm-debug.log
 .DS_Store

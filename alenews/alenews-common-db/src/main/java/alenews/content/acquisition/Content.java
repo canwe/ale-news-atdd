@@ -11,8 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Content {
-    private ContentType bodyContentType;
-    private String body;
+    private String description;
     private String language ;
     private URL sourceLocation;
     private String title ;
@@ -36,20 +35,12 @@ public class Content {
         return HashCodeBuilder.reflectionHashCode(17, 5, this) ;
     }
 
-    public void setBodyContentType(ContentType bodyContentType) {
-        this.bodyContentType = bodyContentType;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public ContentType getBodyContentType() {
-        return bodyContentType;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public String getBody() {
-        return body;
+    public String getDescription() {
+        return description;
     }
 
     public void setSourceLocation(URL location) {

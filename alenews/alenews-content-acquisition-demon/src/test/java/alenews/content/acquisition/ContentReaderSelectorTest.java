@@ -10,7 +10,9 @@ public class ContentReaderSelectorTest {
 
     @Test
     public void selectReader() {
-        assertThat(ContentReaderSelector.selectReader(ContentType.HTML), is(instanceOf(HTMLContentReader.class))) ;
+        ContentReaderSelector contentReaderSelector = new ContentReaderSelector() ;
+
+        assertThat(contentReaderSelector.selectReader(ContentType.HTML), is(instanceOf(HTMLContentReader.class))) ;
     }
 
 }

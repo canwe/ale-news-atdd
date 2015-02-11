@@ -1,0 +1,29 @@
+{
+  "name": "web-client",
+  "version": "0.0.2",
+  "homepage": "https://github.com/snscaimito/ale-news-atdd",
+  "authors": [
+    "Stephan Schwab <sns@caimito.net>"
+  ],
+  "description": "ALE News web clilent",
+  "keywords": [
+    "AngularJS",
+    "Maven"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/webapp/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1",
+    "bootstrap": "~3",
+    "angular-resource": "~1",
+    "angular-route": "~1",
+    "angular-strap": "~2.1.6"
+  }
+}

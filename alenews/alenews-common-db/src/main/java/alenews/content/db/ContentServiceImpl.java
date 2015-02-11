@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,23 +31,34 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public void addContent(Content content) {
-        ContentEntity entity = new ContentEntity() ;
-        entity.setTitle(content.getTitle());
-        entity.setBody(content.getBody());
-        entity.setAuthor(content.getAuthor());
-        entity.setContentType(content.getBodyContentType());
-        entity.setLanguage(content.getLanguage());
-        entity.setPublishedDate(content.getPublishedDate());
-        entity.setSourceLocation(content.getSourceLocation().toExternalForm());
+        ContentEntity existingContentEntity = repository.findByTitle(content.getTitle()) ;
+        if (existingContentEntity == null) {
+            ContentEntity entity = new ContentEntity();
+            entity.setTitle(content.getTitle());
+            entity.setDescription(content.getDescription());
+            entity.setAuthor(content.getAuthor());
+            entity.setLanguage(content.getLanguage());
+            entity.setSourceLocation(content.getSourceLocation().toExternalForm());
 
-        try {
-            ObjectMapper mapper = new ObjectMapper() ;
-            entity.setJson(mapper.writeValueAsString(content)) ;
-        } catch (JsonProcessingException e) {
-            logger.error(e) ;
-        }
+            if (content.getPublishedDate() == null)
+                entity.setPublishedDate(new Date());
+            else
+                entity.setPublishedDate(content.getPublishedDate());
 
-        repository.save(entity) ;
+            try {
+                ObjectMapper mapper = new ObjectMapper();
+                entity.setJson(mapper.writeValueAsString(content));
+            } catch (JsonProcessingException e) {
+                logger.error(e);
+            }
+
+            try {
+                repository.save(entity);
+            } catch (DataIntegrityViolationException e) {
+                logger.error(e);
+            }
+        } else
+            logger.warn(String.format("Not saving content '%s' from %s", content.getTitle(), content.getSourceLocation())) ;
     }
 
     @Override
@@ -57,9 +69,8 @@ public class ContentServiceImpl implements ContentService {
             try {
                 Content content = new Content();
                 content.setTitle(entity.getTitle());
-                content.setBody(entity.getBody());
+                content.setDescription(entity.getDescription());
                 content.setAuthor(entity.getAuthor());
-                content.setBodyContentType(entity.getContentType());
                 content.setLanguage(entity.getLanguage());
 
 
@@ -95,6 +106,13 @@ public class ContentServiceImpl implements ContentService {
                 logger.error(String.format("Ignoring content with title '%s'", entity.getTitle()), e) ;
             }
         }
+
+        Collections.sort(contentList, new Comparator<Content>() {
+            @Override
+            public int compare(Content o1, Content o2) {
+                return -o1.getPublishedDate().compareTo(o2.getPublishedDate()) ;
+            }
+        }) ;
 
         return contentList ;
     }

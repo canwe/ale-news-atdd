@@ -19,11 +19,15 @@ public class ContentAcquisitionDemon {
     private final ConfigurationService configurationService;
     private final ContentMessenger messenger ;
     private final LinkFinder linkFinder;
+    private final ContentReaderSelector contentReaderSelector;
 
     @Autowired
-    public ContentAcquisitionDemon(ConfigurationService configurationService, ContentMessenger messenger, LinkFinder linkFinder) {
+    public ContentAcquisitionDemon(ConfigurationService configurationService, ContentMessenger messenger,
+                                   ContentReaderSelector contentReaderSelector,
+                                   LinkFinder linkFinder) {
         this.configurationService = configurationService;
         this.messenger = messenger ;
+        this.contentReaderSelector = contentReaderSelector ;
         this.linkFinder = linkFinder ;
     }
 
@@ -38,7 +42,7 @@ public class ContentAcquisitionDemon {
             for (URL location : locations) {
                 try {
                     logger.debug(String.format("Reading from %s", location));
-                    ContentReader reader = ContentReaderSelector.selectReader(contentType);
+                    ContentReader reader = contentReaderSelector.selectReader(contentType);
                     Content content = reader.read(location);
 
                     content = linkFinder.findOutgoingLinks(content);

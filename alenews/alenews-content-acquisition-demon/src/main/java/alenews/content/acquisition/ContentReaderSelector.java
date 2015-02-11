@@ -1,8 +1,11 @@
 package alenews.content.acquisition;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ContentReaderSelector {
 
-    public static ContentReader selectReader(ContentType contentType) {
+    public ContentReader selectReader(ContentType contentType) {
         switch (contentType) {
             case HTML:
                 return new HTMLContentReader() ;

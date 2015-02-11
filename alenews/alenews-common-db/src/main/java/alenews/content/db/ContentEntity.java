@@ -17,16 +17,13 @@ public class ContentEntity implements Serializable {
     @GeneratedValue
     private Long id ;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ContentType contentType;
-
     @Lob
     @Column(columnDefinition = "TEXT", nullable = false)
     private String title ;
 
     private String language ;
 
+    @Column(nullable = false, unique = true)
     private String sourceLocation ;
 
     private Date publishedDate ;
@@ -35,7 +32,7 @@ public class ContentEntity implements Serializable {
 
     @Lob
     @Column(columnDefinition = "TEXT")
-    private String body ;
+    private String description ;
 
     @Lob
     @Column(columnDefinition = "TEXT")
@@ -50,14 +47,6 @@ public class ContentEntity implements Serializable {
     @Override
     public int hashCode() {
         return HashCodeBuilder.reflectionHashCode(17, 15, this) ;
-    }
-
-    public ContentType getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(ContentType contentType) {
-        this.contentType = contentType;
     }
 
     public String getTitle() {
@@ -100,12 +89,12 @@ public class ContentEntity implements Serializable {
         this.author = author;
     }
 
-    public String getBody() {
-        return body;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getJson() {

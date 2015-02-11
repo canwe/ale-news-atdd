@@ -21,7 +21,7 @@ public class HTMLLinkFinder implements LinkFinder {
     public Content findOutgoingLinks(Content content) {
         HTMLContentReader htmlContentReader = new HTMLContentReader();
 
-        Document document = Jsoup.parse(htmlContentReader.read(content.getSourceLocation()).getBody());
+        Document document = Jsoup.parse(htmlContentReader.read(content.getSourceLocation()).getDescription());
         Elements articleElements = document.select(String.format("h1:containsOwn(%s)", content.getTitle())) ;
         Elements assumedArticleElements = articleElements.get(0).siblingElements().select("p") ;
 

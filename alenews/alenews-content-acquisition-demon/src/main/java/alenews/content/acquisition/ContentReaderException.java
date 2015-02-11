@@ -8,4 +8,7 @@ public class ContentReaderException extends RuntimeException {
         super(e) ;
     }
 
+    public ContentReaderException(String message) {
+        super(message) ;
+    }
 }

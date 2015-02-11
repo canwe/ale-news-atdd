@@ -1,5 +1,9 @@
 package alenews.content.acquisition;
 
+import com.rometools.rome.feed.synd.SyndContent;
+import com.rometools.rome.feed.synd.SyndContentImpl;
+import com.rometools.rome.feed.synd.SyndEntry;
+import com.rometools.rome.feed.synd.SyndEntryImpl;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
@@ -22,12 +26,18 @@ public class RSSContentReaderTest {
         Content content = reader.read(new URL(String.format("file://%s/%s", System.getProperty("user.dir"), "src/test/resources/content.rss"))) ;
 
         assertThat(content, is(notNullValue())) ;
-        assertThat(content.getBodyContentType(), is(ContentType.HTML)) ;
-        assertThat(content.getBody(), is(notNullValue())) ;
+        assertThat(content.getDescription(), is(notNullValue())) ;
         assertThat(content.getSourceLocation().toExternalForm(), is(equalTo("http://trustartist.com/2015/01/27/pair-programming-economics/"))) ;
         assertThat(content.getTitle(), is(equalTo("Pair Programming Economics"))) ;
         assertThat(content.getPublishedDate(), is(dateFormat.parse("2015-01-26 23:25:35"))) ;
         assertThat(content.getAuthor(), is(equalTo("Olaf Lewitz"))) ;
         assertThat(content.getCategories(), hasItems("Agile with a Purpose", "Conference", "Programming", "pair programming", "TDD")) ;
+    }
+
+    @Test
+    public void removeHTMLFromDescription() throws Exception {
+        RSSContentReader reader = new RSSContentReader() ;
+
+        assertThat(reader.cleanUpDescription("<p>This is some HTML</p>"), is(equalTo("This is some HTML"))) ;
     }
 }

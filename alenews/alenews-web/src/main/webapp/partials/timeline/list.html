@@ -1,0 +1,10 @@
+<ul id="timeline">
+    <li id="articleMetadata" ng-repeat="article in articles">
+        <h2><a href="{{article.sourceLocation}}">{{article.title}}</a></h2>
+        <p>{{article.publishedDate | date:'yyyy-MM-dd HH:mm:ss Z'}}, {{article.author}}</p>
+        <p>{{article.body}}</p>
+
+        <p>Outgoing Links:</p>
+        <p ng-repeat="link in article.outgoingLinks"><a href="{{link}}">{{link}}</a></p>
+    </li>
+</ul>

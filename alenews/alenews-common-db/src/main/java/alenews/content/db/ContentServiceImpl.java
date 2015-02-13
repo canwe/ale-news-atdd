@@ -58,7 +58,7 @@ public class ContentServiceImpl implements ContentService {
                 logger.error(e);
             }
         } else
-            logger.warn(String.format("Not saving content '%s' from %s", content.getTitle(), content.getSourceLocation())) ;
+            logger.debug(String.format("Not saving content '%s' from %s", content.getTitle(), content.getSourceLocation())) ;
     }
 
     @Override
@@ -86,8 +86,8 @@ public class ContentServiceImpl implements ContentService {
                     ObjectMapper mapper = new ObjectMapper() ;
                     Content fromJson = mapper.readValue(entity.getJson(), Content.class) ;
 
-                    for (URL outgoingLink : fromJson.getOutgoingLinks()) {
-                        content.addOutgoingLink(outgoingLink);
+                    for (URL outgoingLink : fromJson.getDiscussionLinks()) {
+                        content.addDiscussionLink(outgoingLink);
                     }
 
                     for (String category : fromJson.getCategories()) {
@@ -115,6 +115,13 @@ public class ContentServiceImpl implements ContentService {
         }) ;
 
         return contentList ;
+    }
+
+    @Override
+    public Content findByLocation(String location) {
+        ContentEntity entity = repository.findBySourceLocation(location) ;
+
+        return null;
     }
 
 }

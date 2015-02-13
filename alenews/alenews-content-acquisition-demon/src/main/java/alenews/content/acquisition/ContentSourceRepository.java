@@ -8,6 +8,6 @@ import java.util.List;
 @Repository
 public interface ContentSourceRepository extends CrudRepository<ContentSource, Long> {
 
-    List<ContentSource> findAllByContentType(ContentType type) ;
+    List<ContentSource> findAllByContentSourceType(ContentSourceType type) ;
 
 }

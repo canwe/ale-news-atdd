@@ -6,7 +6,24 @@ body {
     padding: 1px 5px 1px 5px;
 }
 
-#timeline {
+H1 {
+    font-size: 16pt;
+}
+
+H2 {
+    font-size: 12pt;
+}
+
+UL#timeline {
     list-style-type: none;
     padding: 0 ;
+}
+
+P.articleDate {
+    font-size: smaller;
+    margin-bottom: 2px;
+}
+
+DIV.articleFooter {
+    border-top: dotted thin;
 }

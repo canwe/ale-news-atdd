@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+    <channel>
+        <title>Trust Artist</title>
+        <atom:link href="http://trustartist.com/feed/" rel="self" type="application/rss+xml"/>
+        <link>http://trustartist.com</link>
+        <description>Trust. Create Options. Unleash Potential.</description>
+        <lastBuildDate>Tue, 03 Feb 2015 16:56:49 +0000</lastBuildDate>
+        <language>de-Sie</language>
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+        <generator>http://wordpress.org/?v=3.9.3</generator>
+        <item>
+            <title>Pair Programming Economics</title>
+            <link>http://trustartist.com/2015/01/27/pair-programming-economics/</link>
+            <comments>http://trustartist.com/2015/01/27/pair-programming-economics/#comments</comments>
+            <pubDate>Mon, 26 Jan 2015 22:25:35 +0000</pubDate>
+            <dc:creator><![CDATA[Olaf Lewitz]]></dc:creator>
+            <category><![CDATA[Agile with a Purpose]]></category>
+            <category><![CDATA[Conference]]></category>
+            <category><![CDATA[Programming]]></category>
+            <category><![CDATA[pair programming]]></category>
+            <category><![CDATA[TDD]]></category>
+            <guid isPermaLink="false">http://trustartist.com/?p=2728</guid>
+            <description>
+                <![CDATA[<p>I&#8217;m at OOP this week and had the pleasure yesterday to meet James Grenning for the first time. We had an inspiring conversation last night exchanging tips and strategies on how we inspire developers to try XP practices like TDD and pair programming. I really like his approach for TDD. James asks devs at the [&#8230;]</p><p>The post <a rel="nofollow" href="http://trustartist.com/2015/01/27/pair-programming-economics/">Pair Programming Economics</a> appeared first on <a rel="nofollow" href="http://trustartist.com">Trust Artist</a>.</p>]]></description>
+            <content:encoded>
+                <![CDATA[<p>I&#8217;m at OOP this week and had the pleasure yesterday to meet <a href="http://wingman-sw.com/about">James Grenning</a> for the first time. We had an inspiring conversation last night exchanging tips and strategies on how we inspire developers to try XP practices like TDD and pair programming.</p><p>I really like his approach for TDD. James asks devs at the beginning of a course: List what you like about developing software, and what you don&#8217;t like. After practicing TDD in the course, students have learned that TDD helps them spend more time on the things in the first list and less on the things in the second&#8230;</p><h2>Pair Programming Saves Time</h2><p>How do we spend our time when we develop software? My rough heuristics is this: We spend</p><ul><li>70% of our time reading code and trying to understand it,</li><li>20% of our time solving problems, creating solutions, and</li><li>10% of our time actually writing code (aka typing).</li></ul><div id="attachment_2730" style="width: 590px" class="wp-caption aligncenter"><a href="http://i2.wp.com/trustartist.com/wp-content/uploads/2015/01/PPEconomics.png"><img class="wp-image-2730 size-medium" src="http://i2.wp.com/trustartist.com/wp-content/uploads/2015/01/PPEconomics.png?resize=580%2C435" alt="Pair Programming Economics" data-recalc-dims="1" /></a><p class="wp-caption-text">Pair Programming Economics</p></div><p>This model has been convincing to managers and devs alike:</p><p>Managers understand that their concern that two expensive minds will be wasted using only one keyboard is based on a misinformation. The one keyboard for two pairs of hands can only be a limiting factor if we spend most of our time typing.</p><p>90% of our work is more effective using two minds:</p><ul><li>We will understand the code faster which we want to change, and be more courageous in changing it so we may move forward faster.</li><li>We will solve the problem faster and potentially find a better solution more quickly as we have more available options in two brains.</li><li>While one of us is typing, the other&#8217;s awareness increases quality: catching mistakes faster than the compiler/the tests could.</li></ul><h2>Feedback</h2><p>What do you think? How do you explain the benefits of pair programming and other XP practices? Thanks for joining the conversation!</p><p>The post <a rel="nofollow" href="http://trustartist.com/2015/01/27/pair-programming-economics/">Pair Programming Economics</a> appeared first on <a rel="nofollow" href="http://trustartist.com">Trust Artist</a>.</p>]]></content:encoded>
+            <wfw:commentRss>http://trustartist.com/2015/01/27/pair-programming-economics/feed/</wfw:commentRss>
+            <slash:comments>1</slash:comments>
+        </item>
+    </channel>
+</rss>

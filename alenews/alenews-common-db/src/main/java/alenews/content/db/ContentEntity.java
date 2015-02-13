@@ -1,6 +1,5 @@
 package alenews.content.db;
 
-import alenews.content.acquisition.ContentType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

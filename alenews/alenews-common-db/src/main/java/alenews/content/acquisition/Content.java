@@ -18,7 +18,7 @@ public class Content {
     private Date publishedDate ;
     private String author ;
     private List<String> categories ;
-    private List<URL> outgoingLinks;
+    private List<URL> discussionLinks;
 
     @Override
     public String toString() {
@@ -97,17 +97,17 @@ public class Content {
         this.language = language;
     }
 
-    public void addOutgoingLink(URL link) {
-        if (outgoingLinks == null)
-            outgoingLinks = new ArrayList<URL>() ;
+    public void addDiscussionLink(URL link) {
+        if (discussionLinks == null)
+            discussionLinks = new ArrayList<URL>() ;
 
-        outgoingLinks.add(link);
+        discussionLinks.add(link);
     }
 
-    public List<URL> getOutgoingLinks() {
-        if (outgoingLinks == null)
-            outgoingLinks = new ArrayList<URL>() ;
+    public List<URL> getDiscussionLinks() {
+        if (discussionLinks == null)
+            discussionLinks = new ArrayList<URL>() ;
 
-        return outgoingLinks;
+        return discussionLinks;
     }
 }

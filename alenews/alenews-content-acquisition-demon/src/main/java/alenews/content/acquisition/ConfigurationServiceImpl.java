@@ -22,13 +22,13 @@ public class ConfigurationServiceImpl implements ConfigurationService {
         this.contentSources = contentSources ;
     }
 
-    public void addSource(ContentType sourceType, String location) {
+    public void addSource(ContentSourceType sourceType, String location) {
     }
 
-    public List<URL> listSourceLocationsByType(ContentType type) {
+    public List<URL> listSourceLocationsByType(ContentSourceType type) {
         List<URL> urlList = new ArrayList<URL>() ;
 
-        for (ContentSource source : contentSources.findAllByContentType(type)) {
+        for (ContentSource source : contentSources.findAllByContentSourceType(type)) {
             try {
                 urlList.add(new URL(source.getLocation()));
             } catch (MalformedURLException e) {

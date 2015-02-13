@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface ConfigurationService {
 
-    public void addSource(ContentType sourceType, String location) ;
+    public void addSource(ContentSourceType sourceType, String location) ;
 
-    public List<URL> listSourceLocationsByType(ContentType type) ;
+    public List<URL> listSourceLocationsByType(ContentSourceType type) ;
 
 }

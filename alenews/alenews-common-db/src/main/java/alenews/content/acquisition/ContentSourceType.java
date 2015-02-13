@@ -1,5 +1,5 @@
 package alenews.content.acquisition;
 
-public enum ContentType {
+public enum ContentSourceType {
     RSS, HTML
 }

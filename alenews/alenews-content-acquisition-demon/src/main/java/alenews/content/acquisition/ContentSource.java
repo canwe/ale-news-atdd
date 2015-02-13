@@ -13,7 +13,7 @@ public class ContentSource implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ContentType contentType;
+    private ContentSourceType contentSourceType;
 
     @Column(nullable = false)
     private String location;
@@ -21,12 +21,12 @@ public class ContentSource implements Serializable {
     @Column(nullable = false)
     private boolean active;
 
-    public void setContentType(ContentType contentType) {
-        this.contentType = contentType;
+    public void setContentSourceType(ContentSourceType contentSourceType) {
+        this.contentSourceType = contentSourceType;
     }
 
-    public ContentType getContentType() {
-        return contentType;
+    public ContentSourceType getContentSourceType() {
+        return contentSourceType;
     }
 
     public void setLocation(String location) {

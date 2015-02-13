@@ -9,4 +9,6 @@ public interface ContentRepository extends CrudRepository<ContentEntity, Long> {
 
     ContentEntity findByTitle(String title);
 
+    ContentEntity findBySourceLocation(String location);
+
 }

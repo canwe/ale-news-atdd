@@ -1,8 +1,19 @@
+<h1>Timeline</h1>
 <ul id="timeline">
     <li id="articleMetadata" ng-repeat="article in articles">
-        <h2><a href="{{article.sourceLocation}}">{{article.title}}</a></h2>
-        <p>{{article.publishedDate | date:'yyyy-MM-dd HH:mm:ss Z'}}, {{article.author}}</p>
-        <p>{{article.body}}</p>
+        <div class="article">
+            <h2><a href="{{article.sourceLocation}}">{{article.title}}</a></h2>
+            <p>{{article.description}}</p>
+            <div class="articleFooter">
+                <table width="100%">
+                    <tr>
+                        <td width="33%">{{article.publishedDate | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+                        <td width="33%" align="center">{{article.author}}</td>
+                        <td width="33%" align="right">Discussion</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
         <p>Outgoing Links:</p>
         <p ng-repeat="link in article.outgoingLinks"><a href="{{link}}">{{link}}</a></p>

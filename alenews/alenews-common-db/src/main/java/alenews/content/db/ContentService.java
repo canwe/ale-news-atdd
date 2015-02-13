@@ -10,4 +10,6 @@ public interface ContentService {
 
     List<Content> findAll() ;
 
+    Content findByLocation(String location);
+
 }

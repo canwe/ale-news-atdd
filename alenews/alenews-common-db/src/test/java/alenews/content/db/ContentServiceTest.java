@@ -1,7 +1,6 @@
 package alenews.content.db;
 
 import alenews.content.acquisition.Content;
-import alenews.content.acquisition.ContentType;
 import alenews.content.PersistenceContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +9,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,7 +16,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -89,8 +86,8 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
         content.setLanguage("de");
         content.setDescription("body");
         content.setAuthor("Stephan");
-        content.addOutgoingLink(new URL("http://outgoing1"));
-        content.addOutgoingLink(new URL("http://outgoing2"));
+        content.addDiscussionLink(new URL("http://outgoing1"));
+        content.addDiscussionLink(new URL("http://outgoing2"));
         content.addCategory("TDD");
         content.addCategory("Programming");
         return content;
@@ -106,8 +103,8 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
         content.setLanguage("de");
         content.setDescription("body");
         content.setAuthor("Stephan");
-        content.addOutgoingLink(new URL("http://outgoing1"));
-        content.addOutgoingLink(new URL("http://outgoing2"));
+        content.addDiscussionLink(new URL("http://outgoing1"));
+        content.addDiscussionLink(new URL("http://outgoing2"));
         content.addCategory("TDD");
         content.addCategory("Programming");
         return content;
@@ -123,8 +120,8 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
         content.setLanguage("de");
         content.setDescription("body");
         content.setAuthor("Stephan");
-        content.addOutgoingLink(new URL("http://outgoing1"));
-        content.addOutgoingLink(new URL("http://outgoing2"));
+        content.addDiscussionLink(new URL("http://outgoing1"));
+        content.addDiscussionLink(new URL("http://outgoing2"));
         content.addCategory("TDD");
         content.addCategory("Programming");
         return content;

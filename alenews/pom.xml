@@ -20,6 +20,7 @@
         <module>alenews-common-db</module>
         <module>alenews-content-acquisition-demon</module>
         <module>alenews-web</module>
+        <module>alenews-discussion-finder-batch</module>
     </modules>
 
     <dependencyManagement>

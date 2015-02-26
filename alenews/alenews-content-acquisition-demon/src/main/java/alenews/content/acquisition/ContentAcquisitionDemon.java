@@ -1,7 +1,5 @@
 package alenews.content.acquisition;
 
-import alenews.content.analysis.LinkFinder;
-import alenews.content.db.ContentService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +16,13 @@ public class ContentAcquisitionDemon {
     protected static Log logger = LogFactory.getLog(ContentAcquisitionDemon.class) ;
 
     private final ConfigurationService configurationService;
-    private final ContentFetcherSelector contentFetcherSelector;
+    private final RSSContentFetcher rssContentFetcher ;
 
     @Autowired
     public ContentAcquisitionDemon(ConfigurationService configurationService,
-                                   ContentFetcherSelector contentFetcherSelector) {
+                                   RSSContentFetcher rssContentFetcher) {
         this.configurationService = configurationService;
-        this.contentFetcherSelector = contentFetcherSelector;
+        this.rssContentFetcher = rssContentFetcher ;
     }
 
     @Scheduled(fixedRate = 1000 * 60 * 12)
@@ -36,10 +34,11 @@ public class ContentAcquisitionDemon {
             logger.debug(String.format("Found locations %s", locations)) ;
 
             for (URL location : locations) {
+                logger.debug(String.format("Working on source location %s", location));
                 try {
-                    logger.debug(String.format("Fetching from %s", location));
-                    ContentFetcher fetcher = contentFetcherSelector.selectFetcher(contentSourceType);
-                    fetcher.fetchFromLocation(location);
+                    if (contentSourceType == ContentSourceType.RSS) {
+                        rssContentFetcher.fetchAllFromLocation(location);
+                    }
                 } catch (Exception e) {
                     logger.error(String.format("Skipping content acquisition for %s", location), e) ;
                 }

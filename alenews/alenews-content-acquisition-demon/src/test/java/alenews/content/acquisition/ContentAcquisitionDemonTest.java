@@ -24,12 +24,12 @@ public class ContentAcquisitionDemonTest {
 
         ConfigurationService configurationService = mock(ConfigurationService.class) ;
         ContentService contentService = mock(ContentService.class) ;
-        ContentFetcherSelector contentFetcherSelector = new ContentFetcherSelector(contentService) ;
+        RSSContentFetcher rssContentFetcher = new RSSContentFetcher(contentService) ;
 
         List<URL> rssSourceLocations = Arrays.asList(new URL(rssFeedLocation)) ;
         when(configurationService.listSourceLocationsByType(ContentSourceType.RSS)).thenReturn(rssSourceLocations) ;
 
-        ContentAcquisitionDemon demon = new ContentAcquisitionDemon(configurationService, contentFetcherSelector) ;
+        ContentAcquisitionDemon demon = new ContentAcquisitionDemon(configurationService, rssContentFetcher) ;
         demon.startAcquisition();
 
 

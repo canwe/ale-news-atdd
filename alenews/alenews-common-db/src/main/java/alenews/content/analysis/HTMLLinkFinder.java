@@ -15,6 +15,8 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class HTMLLinkFinder implements LinkFinder {
@@ -27,12 +29,17 @@ public class HTMLLinkFinder implements LinkFinder {
     }
 
     @Override
-    public Content findDiscussionLinks(Content content) {
-        ContentConnection contentConnection = new ContentConnection(content.getSourceLocation()) ;
-        try {
-            Document document = Jsoup.parse(contentConnection.getInputStream(), "utf-8", content.getSourceLocation().toExternalForm());
+    public List<URL> findDiscussionLinks(URL sourceLocation, String sourceTitle) {
+        List<URL> discussionLinks = new ArrayList<>() ;
 
-            Elements articleElements = document.select(String.format("h1:containsOwn(%s)", content.getTitle())) ;
+        if (sourceTitle.isEmpty())
+            return discussionLinks ;
+
+        ContentConnection contentConnection = new ContentConnection(sourceLocation) ;
+        try {
+            Document document = Jsoup.parse(contentConnection.getInputStream(), "utf-8", sourceLocation.toExternalForm());
+
+            Elements articleElements = document.select(String.format("h1:containsOwn(%s)", sourceTitle)) ;
             Elements assumedArticleElements ;
 
             if (articleElements.size() > 0)
@@ -47,7 +54,7 @@ public class HTMLLinkFinder implements LinkFinder {
                 if (contentService.hasContentByLocation(linkTarget)) {
                     logger.debug(String.format("%s is known", linkTarget));
                     try {
-                        content.addDiscussionLink(new URL(linkTarget));
+                        discussionLinks.add(new URL(linkTarget));
                     } catch (MalformedURLException e) {
                         logger.warn(String.format("Link %s malformed", link), e);
                     }
@@ -56,10 +63,10 @@ public class HTMLLinkFinder implements LinkFinder {
             }
 
         } catch (IOException e) {
-            logger.error(String.format("Trying to find outgoing links in %s", content.getSourceLocation().toExternalForm()), e);
+            logger.error(String.format("Trying to find outgoing links in %s", sourceLocation.toExternalForm()), e);
         }
 
-        return content;
+        return discussionLinks;
     }
 
 }

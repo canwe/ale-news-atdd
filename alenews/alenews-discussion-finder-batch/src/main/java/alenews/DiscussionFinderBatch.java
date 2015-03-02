@@ -43,8 +43,8 @@ public class DiscussionFinderBatch implements CommandLineRunner {
         for (Content content : contentService.findAll()) {
             logger.info(String.format("Finding discussions for '%s'", content.getSourceLocation())) ;
 
-            Content enrichedContent = htmlLinkFinder.findDiscussionLinks(content) ;
-            logger.info("found " + enrichedContent.getDiscussionLinks()) ;
+            List<URL> discussionLinks = htmlLinkFinder.findDiscussionLinks(content.getSourceLocation(), content.getTitle()) ;
+            logger.info("found " + discussionLinks) ;
         }
     }
 

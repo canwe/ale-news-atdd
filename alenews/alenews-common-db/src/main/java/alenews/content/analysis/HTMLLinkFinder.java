@@ -18,6 +18,7 @@ public class HTMLLinkFinder {
     private final static Log logger = LogFactory.getLog(HTMLLinkFinder.class) ;
 
     public List<URL> findArticleOutboundLinks(URL sourceLocation, String sourceTitle) {
+        logger.debug(String.format("Looking for outbound links in article %s", sourceLocation)) ;
         List<URL> outboundLinks = new ArrayList<>() ;
 
         if (sourceTitle.isEmpty())
@@ -37,13 +38,13 @@ public class HTMLLinkFinder {
 
             for (Element link : assumedArticleElements.select("a[href]")) {
                 String linkTarget = link.attr("abs:href").toString();
-                logger.debug(String.format("Found outbound link %s", linkTarget)) ;
+                logger.debug(String.format("  Found outbound link %s", linkTarget)) ;
 
                 outboundLinks.add(new URL(linkTarget));
             }
 
         } catch (IOException e) {
-            logger.error(String.format("Trying to find outgoing links in %s", sourceLocation.toExternalForm()), e);
+            logger.error(String.format("  Trying to find outgoing links in %s", sourceLocation.toExternalForm()), e);
         }
 
         return outboundLinks;

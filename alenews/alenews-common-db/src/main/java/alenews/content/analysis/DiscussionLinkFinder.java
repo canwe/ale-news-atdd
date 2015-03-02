@@ -22,16 +22,17 @@ public class DiscussionLinkFinder {
     }
 
     public List<URL> findDiscussionLinks(URL sourceLocation, String sourceTitle) {
+        logger.debug(String.format("Looking for discussions in %s", sourceLocation)) ;
         List<URL> discussionLinks = new ArrayList<>() ;
 
         List<URL> articleOutboundLinks = htmlLinkFinder.findArticleOutboundLinks(sourceLocation, sourceTitle) ;
 
         for (URL link : articleOutboundLinks) {
             if (contentService.hasContentByLocation(link.toExternalForm())) {
-                logger.debug(String.format("%s is known", link));
+                logger.debug(String.format("  %s is known", link));
                 discussionLinks.add(link);
             } else
-                logger.debug(String.format("%s is NOT known", link)) ;
+                logger.debug(String.format("  %s is NOT known", link)) ;
         }
 
         return discussionLinks;

@@ -118,10 +118,10 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public Content findByLocation(String location) {
+    public boolean hasContentByLocation(String location) {
         ContentEntity entity = repository.findBySourceLocation(location) ;
 
-        return null;
+        return entity != null ;
     }
 
 }

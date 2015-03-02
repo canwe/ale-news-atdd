@@ -1,6 +1,5 @@
 package alenews.content.acquisition;
 
-import alenews.content.analysis.LinkFinder;
 import alenews.content.db.ContentService;
 import com.rometools.rome.feed.synd.SyndCategory;
 import com.rometools.rome.feed.synd.SyndEntry;
@@ -12,6 +11,8 @@ import org.apache.commons.logging.LogFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,11 +20,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+@Component
 public class RSSContentFetcher {
     private static final Log logger = LogFactory.getLog(RSSContentFetcher.class) ;
     private final ContentService contentService;
     private final RSSContentExtractor rssContentExtractor = new RSSContentExtractor();
 
+    @Autowired
     public RSSContentFetcher(ContentService contentService) {
         this.contentService = contentService ;
     }

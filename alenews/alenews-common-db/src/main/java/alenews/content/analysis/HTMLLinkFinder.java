@@ -42,14 +42,17 @@ public class HTMLLinkFinder implements LinkFinder {
 
             for (Element link : assumedArticleElements.select("a[href]")) {
                 String linkTarget = link.attr("abs:href").toString();
+                logger.debug(String.format("Found outbound link %s", linkTarget)) ;
 
-                if (contentService.findByLocation(linkTarget) != null) {
+                if (contentService.hasContentByLocation(linkTarget)) {
+                    logger.debug(String.format("%s is known", linkTarget));
                     try {
                         content.addDiscussionLink(new URL(linkTarget));
                     } catch (MalformedURLException e) {
                         logger.warn(String.format("Link %s malformed", link), e);
                     }
-                }
+                } else
+                    logger.debug(String.format("%s is NOT known", linkTarget)) ;
             }
 
         } catch (IOException e) {

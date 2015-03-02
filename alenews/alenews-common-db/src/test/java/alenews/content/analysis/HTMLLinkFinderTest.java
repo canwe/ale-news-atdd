@@ -22,7 +22,7 @@ public class HTMLLinkFinderTest {
         content.setSourceLocation(new URL(String.format("file://%s/%s", System.getProperty("user.dir"), "src/test/resources/trustartist.com.2015-01-27.html")));
 
         ContentService contentService = mock(ContentService.class) ;
-        when(contentService.findByLocation("http://wingman-sw.com/about")).thenReturn(new Content()) ;
+        when(contentService.hasContentByLocation("http://wingman-sw.com/about")).thenReturn(true) ;
 
         HTMLLinkFinder linkFinder = new HTMLLinkFinder(contentService) ;
         content = linkFinder.findDiscussionLinks(content) ;

@@ -1,6 +1,5 @@
 package alenews.content.acquisition;
 
-import alenews.content.analysis.LinkFinder;
 import alenews.content.db.ContentService;
 import org.junit.Test;
 

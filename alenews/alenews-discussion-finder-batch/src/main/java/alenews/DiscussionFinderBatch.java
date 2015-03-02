@@ -4,7 +4,7 @@ import alenews.content.acquisition.ConfigurationService;
 import alenews.content.acquisition.Content;
 import alenews.content.acquisition.ContentSourceType;
 import alenews.content.acquisition.RSSContentFetcher;
-import alenews.content.analysis.HTMLLinkFinder;
+import alenews.content.analysis.DiscussionLinkFinder;
 import alenews.content.db.ContentService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,7 +30,7 @@ public class DiscussionFinderBatch implements CommandLineRunner {
     private ContentService contentService ;
 
     @Autowired
-    private HTMLLinkFinder htmlLinkFinder ;
+    private DiscussionLinkFinder discussionLinkFinder;
 
     @Override
     public void run(String... args) {
@@ -41,10 +41,8 @@ public class DiscussionFinderBatch implements CommandLineRunner {
     private void findingDicussionsInContent() {
         logger.info("Finding Discussions in already fetched content") ;
         for (Content content : contentService.findAll()) {
-            logger.info(String.format("Finding discussions for '%s'", content.getSourceLocation())) ;
-
-            List<URL> discussionLinks = htmlLinkFinder.findDiscussionLinks(content.getSourceLocation(), content.getTitle()) ;
-            logger.info("found " + discussionLinks) ;
+            List<URL> discussionLinks = discussionLinkFinder.findDiscussionLinks(content.getSourceLocation(), content.getTitle()) ;
+            logger.info(String.format("%s discusses with %s ", content.getSourceLocation(), discussionLinks)) ;
         }
     }
 

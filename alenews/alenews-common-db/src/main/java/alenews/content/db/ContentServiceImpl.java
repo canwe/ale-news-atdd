@@ -24,41 +24,58 @@ public class ContentServiceImpl implements ContentService {
 
     private final ContentRepository repository;
 
+    private final CategoryRepository categoryRepository ;
+
     @Autowired
-    public ContentServiceImpl(ContentRepository repository) {
+    public ContentServiceImpl(ContentRepository repository, CategoryRepository categoryRepository) {
         this.repository = repository ;
+        this.categoryRepository = categoryRepository ;
     }
 
     @Override
     public void addContent(Content content) {
         ContentEntity existingContentEntity = repository.findByTitle(content.getTitle()) ;
         if (existingContentEntity == null) {
-            ContentEntity entity = new ContentEntity();
-            entity.setTitle(content.getTitle());
-            entity.setDescription(content.getDescription());
-            entity.setAuthor(content.getAuthor());
-            entity.setLanguage(content.getLanguage());
-            entity.setSourceLocation(content.getSourceLocation().toExternalForm());
+            ContentEntity contentEntity = new ContentEntity();
+            contentEntity.setTitle(content.getTitle());
+            contentEntity.setDescription(content.getDescription());
+            contentEntity.setAuthor(content.getAuthor());
+            contentEntity.setLanguage(content.getLanguage());
+            contentEntity.setSourceLocation(content.getSourceLocation().toExternalForm());
 
             if (content.getPublishedDate() == null)
-                entity.setPublishedDate(new Date());
+                contentEntity.setPublishedDate(new Date());
             else
-                entity.setPublishedDate(content.getPublishedDate());
+                contentEntity.setPublishedDate(content.getPublishedDate());
 
-            try {
-                ObjectMapper mapper = new ObjectMapper();
-                entity.setJson(mapper.writeValueAsString(content));
-            } catch (JsonProcessingException e) {
-                logger.error(e);
+            for (CategoryEntity categoryEntity : findCategoryEntities(content.getCategories())) {
+                contentEntity.getCategories().add(categoryEntity) ;
             }
 
             try {
-                repository.save(entity);
+                repository.save(contentEntity);
             } catch (DataIntegrityViolationException e) {
                 logger.error(e);
             }
         } else
             logger.debug(String.format("Not saving content '%s' from %s", content.getTitle(), content.getSourceLocation())) ;
+    }
+
+    private List<CategoryEntity> findCategoryEntities(List<String> categories) {
+        List<CategoryEntity> categoryEntityList = new ArrayList<>() ;
+
+        for (String categoryName : categories) {
+            CategoryEntity categoryEntity = categoryRepository.findByCategoryName(categoryName) ;
+            if (categoryEntity == null) {
+                categoryEntity = new CategoryEntity() ;
+                categoryEntity.setCategoryName(categoryName);
+                categoryRepository.save(categoryEntity) ;
+            }
+
+            categoryEntityList.add(categoryEntity);
+        }
+
+        return categoryEntityList;
     }
 
     @Override
@@ -73,6 +90,9 @@ public class ContentServiceImpl implements ContentService {
                 content.setAuthor(entity.getAuthor());
                 content.setLanguage(entity.getLanguage());
 
+                for (CategoryEntity categoryEntity : entity.getCategories()) {
+                    content.getCategories().add(categoryEntity.getCategoryName()) ;
+                }
 
                 Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC")) ;
                 if (entity.getPublishedDate() != null) {
@@ -81,25 +101,6 @@ public class ContentServiceImpl implements ContentService {
                 }
 
                 content.setSourceLocation(new URL(entity.getSourceLocation()));
-
-                try {
-                    ObjectMapper mapper = new ObjectMapper() ;
-                    Content fromJson = mapper.readValue(entity.getJson(), Content.class) ;
-
-                    for (URL outgoingLink : fromJson.getDiscussionLinks()) {
-                        content.addDiscussionLink(outgoingLink);
-                    }
-
-                    for (String category : fromJson.getCategories()) {
-                        content.addCategory(category);
-                    }
-                } catch (JsonParseException e) {
-                    logger.error(e);
-                } catch (JsonMappingException e) {
-                    logger.error(e);
-                } catch (IOException e) {
-                    logger.error(e);
-                }
 
                 contentList.add(content);
             } catch (MalformedURLException e) {

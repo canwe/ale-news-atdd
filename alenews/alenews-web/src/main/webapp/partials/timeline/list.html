@@ -15,7 +15,11 @@
             </div>
         </div>
 
-        <p>Outgoing Links:</p>
-        <p ng-repeat="link in article.outgoingLinks"><a href="{{link}}">{{link}}</a></p>
+        <p>Discussion:</p>
+        <div ng-repeat="refArticle in article.discussion">
+            <p><a href="{{refArticle.sourceLocation}}">{{refArticle.title}}</a></p>
+            <p>{{refArticle.description}}</p>
+        </div>
+
     </li>
 </ul>

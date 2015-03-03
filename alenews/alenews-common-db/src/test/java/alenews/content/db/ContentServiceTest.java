@@ -76,6 +76,14 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
                 dateFormat.parse("2015-01-10 17:23:49 UTC"))) ;
     }
 
+    @Test
+    @Rollback(true)
+    public void findAllWithDiscussion() {
+
+        List<Content> contentList = contentService.findAll() ;
+
+    }
+
     protected Content getContentFixtureSource10() throws ParseException, MalformedURLException {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss Z") ;
 
@@ -86,8 +94,6 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
         content.setLanguage("de");
         content.setDescription("body");
         content.setAuthor("Stephan");
-        content.addDiscussionLink(new URL("http://outgoing1"));
-        content.addDiscussionLink(new URL("http://outgoing2"));
         content.addCategory("TDD");
         content.addCategory("Programming");
         return content;
@@ -103,8 +109,6 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
         content.setLanguage("de");
         content.setDescription("body");
         content.setAuthor("Stephan");
-        content.addDiscussionLink(new URL("http://outgoing1"));
-        content.addDiscussionLink(new URL("http://outgoing2"));
         content.addCategory("TDD");
         content.addCategory("Programming");
         return content;
@@ -120,8 +124,6 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
         content.setLanguage("de");
         content.setDescription("body");
         content.setAuthor("Stephan");
-        content.addDiscussionLink(new URL("http://outgoing1"));
-        content.addDiscussionLink(new URL("http://outgoing2"));
         content.addCategory("TDD");
         content.addCategory("Programming");
         return content;

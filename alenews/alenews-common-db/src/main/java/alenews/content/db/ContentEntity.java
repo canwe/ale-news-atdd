@@ -1,11 +1,15 @@
 package alenews.content.db;
 
+import alenews.content.acquisition.Content;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "content")
@@ -14,7 +18,7 @@ public class ContentEntity implements Serializable {
 
     @Id
     @GeneratedValue
-    private Long id ;
+    protected Long id ;
 
     @Lob
     @Column(columnDefinition = "TEXT", nullable = false)
@@ -33,10 +37,12 @@ public class ContentEntity implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String description ;
 
-    @Lob
-    @Column(columnDefinition = "TEXT")
-    private String json ;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "content_category", joinColumns = { @JoinColumn(name = "content_id") },
+            inverseJoinColumns = { @JoinColumn(name = "category_id") })
+    private Set<CategoryEntity> categories = new HashSet<>();
 
+    public ContentEntity() {}
 
     @Override
     public boolean equals(Object obj) {
@@ -96,11 +102,8 @@ public class ContentEntity implements Serializable {
         this.description = description;
     }
 
-    public String getJson() {
-        return json;
+    public Set<CategoryEntity> getCategories() {
+        return categories;
     }
 
-    public void setJson(String json) {
-        this.json = json;
-    }
 }

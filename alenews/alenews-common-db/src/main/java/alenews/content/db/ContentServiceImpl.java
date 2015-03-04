@@ -61,7 +61,7 @@ public class ContentServiceImpl implements ContentService {
             logger.debug(String.format("Not saving content '%s' from %s", content.getTitle(), content.getSourceLocation())) ;
     }
 
-    private List<CategoryEntity> findCategoryEntities(List<String> categories) {
+    private List<CategoryEntity> findCategoryEntities(SortedSet<String> categories) {
         List<CategoryEntity> categoryEntityList = new ArrayList<>() ;
 
         for (String categoryName : categories) {
@@ -83,29 +83,7 @@ public class ContentServiceImpl implements ContentService {
         List<Content> contentList = new ArrayList<Content>() ;
 
         for (ContentEntity entity : repository.findAll()) {
-            try {
-                Content content = new Content();
-                content.setTitle(entity.getTitle());
-                content.setDescription(entity.getDescription());
-                content.setAuthor(entity.getAuthor());
-                content.setLanguage(entity.getLanguage());
-
-                for (CategoryEntity categoryEntity : entity.getCategories()) {
-                    content.getCategories().add(categoryEntity.getCategoryName()) ;
-                }
-
-                Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC")) ;
-                if (entity.getPublishedDate() != null) {
-                    cal.setTime(entity.getPublishedDate());
-                    content.setPublishedDate(cal.getTime());
-                }
-
-                content.setSourceLocation(new URL(entity.getSourceLocation()));
-
-                contentList.add(content);
-            } catch (MalformedURLException e) {
-                logger.error(String.format("Ignoring content with title '%s'", entity.getTitle()), e) ;
-            }
+            contentList.add(convertEntityToContentPojo(entity));
         }
 
         Collections.sort(contentList, new Comparator<Content>() {
@@ -118,11 +96,62 @@ public class ContentServiceImpl implements ContentService {
         return contentList ;
     }
 
+    private Content convertEntityToContentPojo(ContentEntity entity) {
+        Content content = new Content();
+
+        try {
+            content.setTitle(entity.getTitle());
+            content.setDescription(entity.getDescription());
+            content.setAuthor(entity.getAuthor());
+            content.setLanguage(entity.getLanguage());
+
+            for (CategoryEntity categoryEntity : entity.getCategories()) {
+                content.getCategories().add(categoryEntity.getCategoryName()) ;
+            }
+
+            Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC")) ;
+            if (entity.getPublishedDate() != null) {
+                cal.setTime(entity.getPublishedDate());
+                content.setPublishedDate(cal.getTime());
+            }
+
+            content.setSourceLocation(new URL(entity.getSourceLocation()));
+
+            if (!entity.getDiscussion().isEmpty())
+                loadDiscussion(content, entity);
+        } catch (MalformedURLException e) {
+            logger.error(String.format("Ignoring content with title '%s'", entity.getTitle()), e) ;
+        }
+
+        return content ;
+    }
+
+    private void loadDiscussion(Content content, ContentEntity contentEntity) {
+        for (ContentEntity discussionEntity : contentEntity.getDiscussion()) {
+            content.getDiscussion().add(convertEntityToContentPojo(discussionEntity)) ;
+        }
+    }
+
     @Override
     public boolean hasContentByLocation(String location) {
         ContentEntity entity = repository.findBySourceLocation(location) ;
 
         return entity != null ;
+    }
+
+    @Override
+    public void addDiscussions(Content content, List<URL> discussionLinks) {
+        ContentEntity contentEntity = repository.findBySourceLocation(content.getSourceLocation().toExternalForm()) ;
+        if (contentEntity != null) {
+            for (URL discussionLink : discussionLinks) {
+                ContentEntity discussionTarget = repository.findBySourceLocation(discussionLink.toExternalForm()) ;
+                if (discussionTarget != null) {
+                    contentEntity.getDiscussion().add(discussionTarget) ;
+                }
+            }
+            repository.save(contentEntity) ;
+        } else
+            throw new UnknownContentException(String.format("Content '%s' from %s is not known. Cannot add discussion with '%s' to it", content.getTitle(), content.getSourceLocation(), discussionLinks)) ;
     }
 
 }

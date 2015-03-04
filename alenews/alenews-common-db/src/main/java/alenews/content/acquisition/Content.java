@@ -6,9 +6,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Content {
     private String description;
@@ -17,7 +15,8 @@ public class Content {
     private String title ;
     private Date publishedDate ;
     private String author ;
-    private List<String> categories ;
+    private SortedSet<String> categories = new TreeSet<>();
+    private Set<Content> discussion = new HashSet<>();
 
     @Override
     public String toString() {
@@ -74,17 +73,11 @@ public class Content {
         this.author = author;
     }
 
-    public List<String> getCategories() {
-        if (categories == null)
-            categories = new ArrayList<>() ;
-        
+    public SortedSet<String> getCategories() {
         return categories;
     }
 
     public void addCategory(String category) {
-        if (categories == null)
-            categories = new ArrayList<String>() ;
-
         categories.add(category) ;
     }
 
@@ -96,4 +89,7 @@ public class Content {
         this.language = language;
     }
 
+    public Set<Content> getDiscussion() {
+        return discussion ;
+    }
 }

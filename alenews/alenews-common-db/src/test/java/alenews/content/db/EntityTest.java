@@ -19,26 +19,15 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {PersistenceContext.class})
-@TransactionConfiguration(defaultRollback = false)
-public class EntityTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class EntityTest extends MyDatabaseTest {
 
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss Z") ;
-
-    @javax.persistence.PersistenceContext
-    private EntityManager entityManager ;
 
     @Autowired
     private ContentRepository contentRepository ;
 
     @Autowired
     private CategoryRepository categoryRepository ;
-
-    @Before
-    public void cleanDatabase() {
-        deleteFromTables("content_category", "categories", "content") ;
-    }
 
     @Test
     public void saveContent() throws Exception {

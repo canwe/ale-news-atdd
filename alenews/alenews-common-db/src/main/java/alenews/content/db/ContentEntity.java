@@ -42,6 +42,11 @@ public class ContentEntity implements Serializable {
             inverseJoinColumns = { @JoinColumn(name = "category_id") })
     private Set<CategoryEntity> categories = new HashSet<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "content_content", joinColumns = { @JoinColumn(name = "origin_content_id") },
+            inverseJoinColumns = { @JoinColumn(name = "target_content_id") })
+    private Set<ContentEntity> discussion = new HashSet<>() ;
+
     public ContentEntity() {}
 
     @Override
@@ -106,4 +111,7 @@ public class ContentEntity implements Serializable {
         return categories;
     }
 
+    public Set<ContentEntity> getDiscussion() {
+        return discussion;
+    }
 }

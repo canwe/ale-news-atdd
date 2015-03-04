@@ -9,7 +9,9 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
+import javax.persistence.EntityManager;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -19,21 +21,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.junit.Assert.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {PersistenceContext.class})
-public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class ContentServiceTest extends MyDatabaseTest {
 
     @Autowired
     private ContentService contentService ;
 
     @Test
-    @Rollback(true)
     public void saveReadContent() throws Exception {
         Content content = getContentFixtureSource10();
 
@@ -43,7 +40,6 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
     }
 
     @Test
-    @Rollback(true)
     public void noDuplicateContent() throws Exception {
         Content content = getContentFixtureSource10();
 
@@ -55,7 +51,6 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
     }
 
     @Test
-    @Rollback(true)
     public void findSortedByDate() throws Exception {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss Z") ;
 
@@ -77,11 +72,27 @@ public class ContentServiceTest extends AbstractTransactionalJUnit4SpringContext
     }
 
     @Test
-    @Rollback(true)
-    public void findAllWithDiscussion() {
+    public void addDiscussions() throws Exception {
+        Content content = getContentFixtureSource10() ;
+        Content targetContent = getContentFixtureSource20() ;
+        contentService.addContent(content);
+        contentService.addContent(targetContent);
 
-        List<Content> contentList = contentService.findAll() ;
+        List<URL> discussionLinks = new ArrayList<>() ;
+        discussionLinks.add(targetContent.getSourceLocation()) ;
 
+        contentService.addDiscussions(content, discussionLinks);
+        entityManager.flush();
+
+        List<Content> actualContentList = contentService.findAll() ;
+
+        for (Content contentCandidate : actualContentList) {
+            if ("Title10" != contentCandidate.getTitle())
+                actualContentList.remove(contentCandidate) ;
+        }
+
+        Content actualContent = actualContentList.get(0) ;
+        assertThat(actualContent.getDiscussion(), is(not(empty()))) ;
     }
 
     protected Content getContentFixtureSource10() throws ParseException, MalformedURLException {

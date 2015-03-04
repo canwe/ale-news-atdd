@@ -2,6 +2,7 @@ package alenews.content.db;
 
 import alenews.content.acquisition.Content;
 
+import java.net.URL;
 import java.util.List;
 
 public interface ContentService {
@@ -11,5 +12,7 @@ public interface ContentService {
     List<Content> findAll() ;
 
     boolean hasContentByLocation(String location);
+
+    void addDiscussions(Content content, List<URL> discussionLinks);
 
 }

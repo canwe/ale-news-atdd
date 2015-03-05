@@ -1,5 +1,6 @@
 body {
     padding-top: 70px;
+    background-color: #dfdfdf;
 }
 
 .navbar-brand {
@@ -19,11 +20,29 @@ UL#timeline {
     padding: 0 ;
 }
 
-P.articleDate {
-    font-size: smaller;
-    margin-bottom: 2px;
+DIV.article, DIV.discussion {
+    background-color: #ffffff;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px ;
+}
+
+DIV.discussion {
+    background-color: #f5f5f5;
+}
+
+P.articleTitle {
+    font-weight: bold ;
 }
 
 DIV.articleFooter {
     border-top: dotted thin;
+}
+
+DIV.articleFooter TD {
+    font-size: smaller;
+}
+
+
+A {
+    color: #000000 ;
 }

@@ -1,5 +1,18 @@
-<div class="row" id="articleMetadata" ng-repeat="article in articles">
-    <div class="col-md-6 article">
+<!doctype html>
+<html lang="en" ng-app="alenewsApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ALE News</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row-fluid" id="articleMetadata" ng-repeat="article in articles">
+    <div class="col-md-6  article">
         <p class="articleTitle"><a href="{{article.sourceLocation}}">{{article.title}}</a></p>
         <p>{{article.description}}</p>
         <div class="articleFooter">
@@ -11,7 +24,7 @@
             </table>
         </div>
     </div>
-    <div class="col-md-6 discussion" ng-repeat="refArticle in article.discussion">
+    <div class="col-md-6" ng-repeat="refArticle in article.discussion">
         <p class="articleTitle"><a href="{{refArticle.sourceLocation}}">{{refArticle.title}}</a></p>
         <p>{{refArticle.description}}</p>
         <div class="articleFooter">
@@ -24,3 +37,8 @@
         </div>
     </div>
 </div>
+
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>
